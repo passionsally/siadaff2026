@@ -1,0 +1,4 @@
+project_id = "siadaff"
+
+[functions.submit-entry]
+verify_jwt = false
