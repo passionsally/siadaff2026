@@ -456,6 +456,65 @@ textarea {
   font-weight: 950;
 }
 
+.schedule-section {
+  padding: 86px 20px 96px;
+  color: var(--white);
+  background:
+    linear-gradient(135deg, rgba(83, 199, 208, .16), rgba(244, 43, 125, .08)),
+    var(--black);
+  border-top: 1px solid rgba(255, 255, 255, .14);
+}
+
+.schedule-cards {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.schedule-cards article {
+  min-height: 190px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(83, 199, 208, .34);
+  border-radius: var(--radius);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, .28);
+}
+
+.schedule-cards span {
+  color: var(--cyan);
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.schedule-cards strong {
+  display: block;
+  margin-top: 18px;
+  font-size: clamp(25px, 2.7vw, 36px);
+  line-height: 1.14;
+  font-weight: 950;
+}
+
+.schedule-cards time {
+  display: block;
+  margin-top: 10px;
+  color: var(--white);
+  font-size: clamp(34px, 4.4vw, 62px);
+  line-height: .95;
+  font-weight: 950;
+}
+
+.schedule-cards p {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, .68);
+  font-size: 16px;
+  font-weight: 800;
+}
+
 .rules-section {
   padding: 96px 20px;
   background: var(--paper);
@@ -884,6 +943,7 @@ section.is-visible,
 
   .placeholder-row,
   .category-cards,
+  .schedule-cards,
   .rules-layout,
   .status-flow,
   .submit-layout,
@@ -940,6 +1000,7 @@ section.is-visible,
 
   .impact-section,
   .category-section,
+  .schedule-section,
   .rules-section,
   .reward-section,
   .status-section,
