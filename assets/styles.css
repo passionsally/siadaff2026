@@ -117,17 +117,6 @@ textarea {
   text-align: center;
 }
 
-.hero-brand p {
-  margin: 0 0 28px;
-  color: rgba(255, 255, 255, .62);
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.hero-brand p::first-letter {
-  color: var(--cyan);
-}
-
 .hero-brand img {
   width: min(560px, 82vw);
   margin: 0 auto;
