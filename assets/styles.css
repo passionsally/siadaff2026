@@ -306,37 +306,6 @@ textarea {
   width: 100%;
 }
 
-.trophy-plaque {
-  position: absolute;
-  left: 51%;
-  top: 60.8%;
-  width: min(310px, 25%);
-  min-height: 62px;
-  display: grid;
-  place-items: center;
-  padding: 7px 10px;
-  color: #151719;
-  background: #f8f8f6;
-  border: 1px solid #d4d4d1;
-  text-align: center;
-  transform: translateX(-50%) rotate(.2deg);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
-}
-
-.trophy-plaque strong {
-  display: block;
-  font-size: clamp(16px, 2vw, 30px);
-  line-height: .9;
-  font-weight: 950;
-}
-
-.trophy-plaque span {
-  display: block;
-  margin-top: 4px;
-  font-size: clamp(5px, .72vw, 10px);
-  font-weight: 800;
-}
-
 .category-section {
   padding: 92px 20px 112px;
   background: var(--cyan);
