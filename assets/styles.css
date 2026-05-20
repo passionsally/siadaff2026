@@ -358,8 +358,9 @@ textarea {
 
 .partner-logo img {
   width: min(190px, 100%);
-  max-height: 54px;
+  height: 54px;
   object-fit: contain;
+  display: block;
 }
 
 .trophy-section {
