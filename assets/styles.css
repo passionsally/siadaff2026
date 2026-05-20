@@ -107,25 +107,12 @@ textarea {
 .hero-section {
   color: var(--white);
   background: var(--black);
-  padding-top: 92px;
-}
-
-.hero-brand {
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 32px 0 30px;
-  text-align: center;
-}
-
-.hero-brand img {
-  width: min(560px, 82vw);
-  margin: 0 auto;
-  filter: drop-shadow(0 0 18px rgba(83, 199, 208, .24));
+  padding-top: 94px;
 }
 
 .hero-stage {
   position: relative;
-  min-height: min(820px, calc(100svh - 220px));
+  min-height: min(820px, calc(100svh - 94px));
   overflow: hidden;
   background: #030404;
 }
@@ -143,7 +130,7 @@ textarea {
 
 .hero-stage img {
   width: 100%;
-  height: min(820px, calc(100svh - 220px));
+  height: min(820px, calc(100svh - 94px));
   object-fit: cover;
   object-position: center center;
   opacity: 1;
@@ -983,16 +970,8 @@ section.is-visible,
 }
 
 @media (max-width: 640px) {
-  .hero-brand {
-    display: none;
-  }
-
   .wordmark img {
     width: 148px;
-  }
-
-  .hero-brand {
-    padding-top: 20px;
   }
 
   .hero-stage,
