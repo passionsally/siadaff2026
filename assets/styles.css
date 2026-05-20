@@ -903,6 +903,18 @@ textarea {
   font-size: 13px;
 }
 
+.footer-org {
+  margin-top: 20px;
+  padding-top: 18px;
+  color: rgba(255, 255, 255, .58);
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.footer-org p {
+  font-size: 12px;
+  font-weight: 700;
+}
+
 section,
 .category-cards article,
 .rule-panel,
