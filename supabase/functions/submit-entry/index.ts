@@ -136,7 +136,13 @@ function validate(payload: Payload) {
     return "이메일 형식을 확인해 주세요.";
   }
 
-  const consentKeys = ["rulesConsent", "rightsConsent", "privacyConsent", "promotionConsent"];
+  const consentKeys = [
+    "rulesConsent",
+    "rightsConsent",
+    "privacyConsent",
+    "promotionConsent",
+    "teamParticipationConsent",
+  ];
   if (!consentKeys.every((key) => asBoolean(payload, key))) {
     return "필수 동의 항목을 모두 확인해 주세요.";
   }
@@ -225,6 +231,7 @@ Deno.serve(async (request) => {
     rights_consent: asBoolean(payload, "rightsConsent"),
     privacy_consent: asBoolean(payload, "privacyConsent"),
     promotion_consent: asBoolean(payload, "promotionConsent"),
+    team_participation_consent: asBoolean(payload, "teamParticipationConsent"),
     status: "접수완료",
   };
 

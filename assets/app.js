@@ -19,7 +19,8 @@ const consentFields = [
   "rulesConsent",
   "rightsConsent",
   "privacyConsent",
-  "promotionConsent"
+  "promotionConsent",
+  "teamParticipationConsent"
 ];
 
 function syncTitle() {
