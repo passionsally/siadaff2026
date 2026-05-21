@@ -367,9 +367,13 @@ textarea {
   display: block;
 }
 
+.partner-logo.is-wide {
+  grid-column: span 2;
+}
+
 .partner-logo.is-wide img {
-  width: min(250px, 100%);
-  height: 68px;
+  width: min(360px, 100%);
+  height: 88px;
 }
 
 .partner-logo.is-a4k-main img {
@@ -1153,6 +1157,10 @@ section.is-visible,
 
   .submit-intro {
     position: static;
+  }
+
+  .partner-logo.is-wide {
+    grid-column: auto;
   }
 }
 
