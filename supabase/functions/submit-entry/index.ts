@@ -72,11 +72,14 @@ function validate(payload: Payload) {
   const category = asString(payload, "category");
   const entryTitle = asString(payload, "entryTitle");
   const workTitle = asString(payload, "workTitle");
+  const titleKo = asString(payload, "titleKo");
+  const titleEn = asString(payload, "titleEn");
   const ageGroup = asString(payload, "ageGroup");
   const productionType = asString(payload, "productionType");
   const runtime = asString(payload, "runtime");
   const aiUse = asString(payload, "aiUse");
-  const synopsis = asString(payload, "synopsis");
+  const synopsisKo = asString(payload, "synopsisKo");
+  const synopsisEn = asString(payload, "synopsisEn");
   const youtubeUrl = asString(payload, "youtubeUrl");
   const instagramUrl = asString(payload, "instagramUrl");
   const tiktokUrl = asString(payload, "tiktokUrl");
@@ -86,13 +89,16 @@ function validate(payload: Payload) {
 
   const requiredValues = [
     ["출품 부문", category],
-    ["제목", entryTitle],
+    ["접수 제목", entryTitle],
     ["작품명", workTitle],
+    ["제목 한글", titleKo],
+    ["제목 영문", titleEn],
     ["연령 부문", ageGroup],
     ["제작 형태", productionType],
     ["러닝타임 또는 포스터 규격", runtime],
     ["AI 활용 여부", aiUse],
-    ["시놉시스/카피", synopsis],
+    ["시놉시스 한글", synopsisKo],
+    ["시놉시스 영문", synopsisEn],
     ["이름", name],
     ["연락처", phone],
     ["이메일", email],
@@ -199,12 +205,16 @@ Deno.serve(async (request) => {
     category: asString(payload, "category"),
     entry_title: asString(payload, "entryTitle"),
     work_title: asString(payload, "workTitle"),
+    title_ko: asString(payload, "titleKo"),
+    title_en: asString(payload, "titleEn"),
     age_group: asString(payload, "ageGroup"),
     production_type: asString(payload, "productionType"),
     runtime_or_size: asString(payload, "runtime"),
     ai_used: asString(payload, "aiUse") === "활용함",
     ai_description: asString(payload, "aiMemo") || null,
-    synopsis: asString(payload, "synopsis"),
+    synopsis: asString(payload, "synopsisKo"),
+    synopsis_ko: asString(payload, "synopsisKo"),
+    synopsis_en: asString(payload, "synopsisEn"),
     youtube_url: asString(payload, "youtubeUrl") || null,
     instagram_url: asString(payload, "instagramUrl") || null,
     tiktok_url: asString(payload, "tiktokUrl") || null,

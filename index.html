@@ -422,14 +422,24 @@
               </div>
 
               <div class="field full">
-                <label for="entryTitle">제목</label>
+                <label for="entryTitle">접수 제목</label>
                 <input id="entryTitle" name="entryTitle" required>
                 <span class="help">형식: 서울국제광고영화제 SIADAFF 1회 00부문 출품작</span>
               </div>
 
-              <div class="field">
+              <div class="field full">
                 <label for="workTitle">작품명</label>
                 <input id="workTitle" name="workTitle" placeholder="작품명을 입력하세요" required>
+              </div>
+
+              <div class="field">
+                <label for="titleKo">제목 한글</label>
+                <input id="titleKo" name="titleKo" placeholder="작품의 한글 제목을 입력하세요" required>
+              </div>
+
+              <div class="field">
+                <label for="titleEn">제목 영문</label>
+                <input id="titleEn" name="titleEn" lang="en" placeholder="Enter the English title" required>
               </div>
 
               <div class="field">
@@ -461,8 +471,13 @@
               </div>
 
               <div class="field full">
-                <label for="synopsis">시놉시스 / 카피</label>
-                <textarea id="synopsis" name="synopsis" placeholder="200~300자 권장" required></textarea>
+                <label for="synopsisKo">시놉시스 한글</label>
+                <textarea id="synopsisKo" name="synopsisKo" placeholder="국문 200~300자 권장" required></textarea>
+              </div>
+
+              <div class="field full">
+                <label for="synopsisEn">시놉시스 영문</label>
+                <textarea id="synopsisEn" name="synopsisEn" lang="en" placeholder="English synopsis recommended" required></textarea>
               </div>
             </div>
 
@@ -531,6 +546,6 @@
     </footer>
 
     <script src="assets/config.js?v=20260519-cinema"></script>
-    <script src="assets/app.js?v=20260519-cinema"></script>
+    <script src="assets/app.js?v=20260521-bilingual-form"></script>
   </body>
 </html>
