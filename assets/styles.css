@@ -367,25 +367,6 @@ textarea {
   display: block;
 }
 
-.partner-logo.is-wide {
-  grid-column: span 2;
-}
-
-.partner-logo.is-wide img {
-  width: min(360px, 100%);
-  height: 88px;
-}
-
-.partner-logo.is-a4k-main img {
-  width: min(250px, 100%);
-  height: 76px;
-}
-
-.partner-logo.is-tall img {
-  width: min(230px, 100%);
-  height: 76px;
-}
-
 .trophy-section {
   padding: 0;
   background: #eceeee;
@@ -1159,9 +1140,6 @@ section.is-visible,
     position: static;
   }
 
-  .partner-logo.is-wide {
-    grid-column: auto;
-  }
 }
 
 @media (max-width: 640px) {
