@@ -41,8 +41,15 @@ try {
     "ALLOWED_ORIGINS=$env:ALLOWED_ORIGINS" `
     --project-ref $projectRef
 
+  if ($env:ADMIN_ACCESS_TOKEN) {
+    npx.cmd supabase secrets set `
+      "ADMIN_ACCESS_TOKEN=$env:ADMIN_ACCESS_TOKEN" `
+      --project-ref $projectRef
+  }
+
   npx.cmd supabase functions deploy submit-entry --project-ref $projectRef --no-verify-jwt
   npx.cmd supabase functions deploy submit-sponsor-inquiry --project-ref $projectRef --no-verify-jwt
+  npx.cmd supabase functions deploy admin-data --project-ref $projectRef --no-verify-jwt
 }
 finally {
   Pop-Location
