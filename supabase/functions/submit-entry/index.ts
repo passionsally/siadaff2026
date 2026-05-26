@@ -112,6 +112,10 @@ function validate(payload: Payload) {
   if (!productionTypes.has(productionType)) return "제작 형태 값이 올바르지 않습니다.";
   if (!aiUseValues.has(aiUse)) return "AI 활용 여부 값이 올바르지 않습니다.";
 
+  if (synopsisKo.length > 1200 || synopsisEn.length > 1200) {
+    return "시놉시스 또는 카피는 최대 1,200자 이내로 작성해 주세요.";
+  }
+
   if (!youtubeUrl && !instagramUrl && !tiktokUrl) {
     return "유튜브, 인스타그램, 틱톡 URL 중 최소 1개를 입력해 주세요.";
   }
