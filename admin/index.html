@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIADAFF 관리자 | 접수 현황</title>
+    <title>SIADAFF 관리자 | 출품·후원 관리</title>
     <meta name="robots" content="noindex, nofollow, noarchive">
     <link rel="icon" href="../assets/favicon.png">
     <link rel="stylesheet" href="../assets/admin.css?v=20260526-admin">
@@ -13,8 +13,8 @@
       <header class="admin-header">
         <div>
           <span>SIADAFF 2026 Admin</span>
-          <h1>운영사무국 접수 현황</h1>
-          <p>출품 접수와 후원 문의를 운영진 공유 링크로 확인합니다. 이 페이지는 공개 메뉴에 노출되지 않습니다.</p>
+          <h1>운영사무국 관리 사이트</h1>
+          <p>출품 접수와 후원 문의를 각각 별도 탭에서 저장·관리합니다. 이 페이지는 공개 메뉴에 노출되지 않습니다.</p>
         </div>
         <div class="admin-actions">
           <a class="ghost-button" href="/" target="_blank" rel="noreferrer">홈페이지 열기</a>
@@ -45,8 +45,8 @@
 
       <section class="tool-panel" data-tool-panel hidden>
         <div class="tab-list" role="tablist" aria-label="관리 데이터 선택">
-          <button class="is-active" type="button" data-tab-button="submissions">출품 접수</button>
-          <button type="button" data-tab-button="sponsors">후원 문의</button>
+          <button class="is-active" type="button" data-tab-button="submissions">출품 접수 관리</button>
+          <button type="button" data-tab-button="sponsors">후원 문의 관리</button>
         </div>
         <div class="tool-actions">
           <input type="search" data-search placeholder="이름, 이메일, 기업명, 접수번호 검색">
@@ -68,7 +68,7 @@
                 <th>연령/형태</th>
                 <th>신청자</th>
                 <th>연락처</th>
-                <th>상태</th>
+                <th>저장 관리</th>
               </tr>
             </thead>
             <tbody data-submission-rows></tbody>
@@ -88,7 +88,7 @@
                 <th>후원 유형</th>
                 <th>예산</th>
                 <th>연락처</th>
-                <th>상태</th>
+                <th>저장 관리</th>
               </tr>
             </thead>
             <tbody data-sponsor-rows></tbody>

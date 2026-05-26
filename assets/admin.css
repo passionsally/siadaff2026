@@ -22,7 +22,9 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -222,7 +224,7 @@ input {
 
 table {
   width: 100%;
-  min-width: 1040px;
+  min-width: 1280px;
   border-collapse: collapse;
 }
 
@@ -267,6 +269,59 @@ td strong {
   background: #dff7f9;
   font-size: 12px;
   font-weight: 950;
+}
+
+.manage-cell {
+  min-width: 260px;
+}
+
+.manage-form {
+  display: grid;
+  gap: 8px;
+}
+
+.manage-form select,
+.manage-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: #fbffff;
+  outline: none;
+}
+
+.manage-form select {
+  min-height: 38px;
+  padding: 0 10px;
+  font-weight: 900;
+}
+
+.manage-form textarea {
+  min-height: 72px;
+  padding: 10px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.manage-form select:focus,
+.manage-form textarea:focus {
+  border-color: #21aebc;
+  box-shadow: 0 0 0 4px rgba(83, 199, 208, .16);
+}
+
+.save-button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 999px;
+  color: #061012;
+  background: var(--cyan);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.save-button:disabled {
+  cursor: wait;
+  opacity: .62;
 }
 
 @media (max-width: 860px) {

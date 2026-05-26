@@ -20,6 +20,8 @@ let adminData = {
   submissions: [],
   sponsorInquiries: [],
 };
+const submissionStatuses = ["접수완료", "검토중", "수상확정", "내년에 재도전 응원해요"];
+const sponsorStatuses = ["문의접수", "검토중", "연락완료", "후원확정", "보류"];
 
 if (urlToken) {
   localStorage.setItem(tokenStorageKey, urlToken);
@@ -44,6 +46,26 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function optionList(options, selectedValue) {
+  return options.map((option) => {
+    const selected = option === selectedValue ? " selected" : "";
+    return `<option value="${escapeHtml(option)}"${selected}>${escapeHtml(option)}</option>`;
+  }).join("");
+}
+
+function manageForm(type, id, status, adminMemo) {
+  const statuses = type === "submission" ? submissionStatuses : sponsorStatuses;
+  return `
+    <div class="manage-form" data-manage-form data-type="${type}" data-id="${escapeHtml(id)}">
+      <select data-manage-status aria-label="상태 선택">
+        ${optionList(statuses, status)}
+      </select>
+      <textarea data-manage-memo maxlength="2000" placeholder="관리 메모">${escapeHtml(adminMemo || "")}</textarea>
+      <button class="save-button" type="button" data-save-record>저장</button>
+    </div>
+  `;
 }
 
 function showMessage(message, isError = false) {
@@ -98,7 +120,7 @@ function renderSubmissions() {
         <td>${escapeHtml(row.age_group)}<br><span class="muted">${escapeHtml(row.production_type)} / ${escapeHtml(row.runtime_or_size)}</span></td>
         <td><strong>${escapeHtml(row.name)}</strong><span class="muted">${row.ai_used ? "AI 활용" : "AI 미활용"}</span></td>
         <td>${escapeHtml(row.phone)}<br><span class="muted">${escapeHtml(row.email)}</span></td>
-        <td><span class="status-pill">${escapeHtml(row.status)}</span></td>
+        <td class="manage-cell">${manageForm("submission", row.receipt_no, row.status, row.admin_memo)}</td>
       </tr>
     `;
   }).join("");
@@ -119,7 +141,7 @@ function renderSponsors() {
       <td>${escapeHtml(row.interest_type)}</td>
       <td>${escapeHtml(row.budget_range)}</td>
       <td>${escapeHtml(row.phone)}<br><span class="muted">${escapeHtml(row.email)}</span></td>
-      <td><span class="status-pill">${escapeHtml(row.status)}</span></td>
+      <td class="manage-cell">${manageForm("sponsor", row.inquiry_no, row.status, row.admin_memo)}</td>
     </tr>
   `).join("");
 
@@ -183,11 +205,61 @@ async function loadAdminData() {
   }
 }
 
+function replaceUpdatedRecord(type, updatedRecord) {
+  if (type === "submission") {
+    adminData.submissions = adminData.submissions.map((row) =>
+      row.receipt_no === updatedRecord.receipt_no ? updatedRecord : row
+    );
+    return;
+  }
+
+  adminData.sponsorInquiries = adminData.sponsorInquiries.map((row) =>
+    row.inquiry_no === updatedRecord.inquiry_no ? updatedRecord : row
+  );
+}
+
+async function saveManagedRecord(form) {
+  const button = form.querySelector("[data-save-record]");
+  const type = form.dataset.type;
+  const id = form.dataset.id;
+  const status = form.querySelector("[data-manage-status]").value;
+  const adminMemo = form.querySelector("[data-manage-memo]").value;
+
+  button.disabled = true;
+  button.textContent = "저장 중";
+  hideMessage();
+
+  try {
+    const response = await fetch(adminConfig.adminDataEndpoint, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "x-admin-token": adminToken,
+      },
+      body: JSON.stringify({ type, id, status, adminMemo }),
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(result.error || "관리 정보를 저장하지 못했습니다.");
+    }
+
+    const updatedRecord = type === "submission" ? result.submission : result.sponsorInquiry;
+    replaceUpdatedRecord(type, updatedRecord);
+    render();
+    showMessage(`${id} 관리 정보를 저장했습니다.`);
+  } catch (error) {
+    showMessage(error.message || "관리 정보를 저장하지 못했습니다.", true);
+  } finally {
+    button.disabled = false;
+    button.textContent = "저장";
+  }
+}
+
 function downloadCsv() {
   const rows = currentRows();
   const headers = activeTab === "submissions"
-    ? ["created_at", "receipt_no", "category", "title_ko", "title_en", "age_group", "production_type", "name", "phone", "email", "status"]
-    : ["created_at", "inquiry_no", "organization_name", "organization_type", "contact_name", "phone", "email", "interest_type", "budget_range", "status", "message"];
+    ? ["created_at", "receipt_no", "category", "title_ko", "title_en", "age_group", "production_type", "name", "phone", "email", "status", "admin_memo"]
+    : ["created_at", "inquiry_no", "organization_name", "organization_type", "contact_name", "phone", "email", "interest_type", "budget_range", "status", "admin_memo", "message"];
   const csv = [
     headers.join(","),
     ...rows.map((row) => headers.map((key) => `"${String(row[key] ?? "").replaceAll('"', '""')}"`).join(",")),
@@ -210,6 +282,12 @@ document.querySelectorAll("[data-tab-button]").forEach((button) => {
 
 document.querySelector("[data-refresh]").addEventListener("click", loadAdminData);
 document.querySelector("[data-download-csv]").addEventListener("click", downloadCsv);
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-save-record]");
+  if (!button) return;
+  const form = button.closest("[data-manage-form]");
+  if (form) saveManagedRecord(form);
+});
 document.querySelector("[data-logout]").addEventListener("click", () => {
   localStorage.removeItem(tokenStorageKey);
   adminToken = "";

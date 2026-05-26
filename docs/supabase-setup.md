@@ -88,6 +88,11 @@ This URL is safe to expose. The secret key stays inside Supabase Edge Function s
 
 Open `/admin/?admin=YOUR_ADMIN_ACCESS_TOKEN` to view the hidden dashboard. This link should only be shared with SIADAFF office staff. The token is stored in the browser after first access, so later visits to `/admin/` work on the same browser until `접근 해제` is clicked.
 
+The admin dashboard separates:
+
+- `출품 접수 관리`: view entries, search, download CSV, update status, and save admin memo.
+- `후원 문의 관리`: view sponsor inquiries, search, download CSV, update status, and save admin memo.
+
 Supabase Studio remains available for deeper review or status edits. Use the `submissions` table for entries and the `sponsor_inquiries` table for sponsor inquiries.
 
 Allowed `status` values:
