@@ -8,7 +8,11 @@ This page documents the production data path for the SIADAFF landing page.
 - `assets/app.js` validates the form and sends JSON to the submit API.
 - `supabase/functions/submit-entry/index.ts` validates and stores the entry.
 - `supabase/migrations/202605190001_create_submissions.sql` creates the `submissions` table.
-- Admin review can start in Supabase Studio by editing the `status` column.
+- `sponsor/index.html` renders the sponsorship page and inquiry form.
+- `assets/sponsor.js` validates the sponsorship inquiry form and sends JSON to the sponsor inquiry API.
+- `supabase/functions/submit-sponsor-inquiry/index.ts` validates and stores sponsor inquiries.
+- `supabase/migrations/20260526000100_create_sponsor_inquiries.sql` creates the `sponsor_inquiries` table.
+- Admin review can start in Supabase Studio by editing each table's `status` column.
 
 The browser must never receive `SUPABASE_SERVICE_ROLE_KEY`.
 
@@ -36,7 +40,7 @@ supabase/migrations/202605190001_create_submissions.sql
 Set secrets for the Edge Function:
 
 ```bash
-supabase secrets set ALLOWED_ORIGINS=https://YOUR_DOMAIN.com,http://localhost:8080
+supabase secrets set ALLOWED_ORIGINS=https://YOUR_DOMAIN.com,http://localhost:8080,http://localhost:4173,http://127.0.0.1:4173
 ```
 
 `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are reserved Supabase runtime values and are provided to deployed Edge Functions by Supabase. Do not paste secret keys into `assets/config.js`.
@@ -45,12 +49,14 @@ supabase secrets set ALLOWED_ORIGINS=https://YOUR_DOMAIN.com,http://localhost:80
 
 ```bash
 supabase functions deploy submit-entry --no-verify-jwt
+supabase functions deploy submit-sponsor-inquiry --no-verify-jwt
 ```
 
 The function URL will look like this:
 
 ```text
 https://YOUR_PROJECT_REF.supabase.co/functions/v1/submit-entry
+https://YOUR_PROJECT_REF.supabase.co/functions/v1/submit-sponsor-inquiry
 ```
 
 ## Connect Frontend
@@ -65,7 +71,8 @@ Then update `assets/config.js`:
 
 ```js
 window.SIADAFF_CONFIG = {
-  submitEndpoint: "https://YOUR_PROJECT_REF.supabase.co/functions/v1/submit-entry"
+  submitEndpoint: "https://YOUR_PROJECT_REF.supabase.co/functions/v1/submit-entry",
+  sponsorInquiryEndpoint: "https://YOUR_PROJECT_REF.supabase.co/functions/v1/submit-sponsor-inquiry"
 };
 ```
 
@@ -73,7 +80,7 @@ This URL is safe to expose. The secret key stays inside Supabase Edge Function s
 
 ## Admin Workflow
 
-Open Supabase Studio, then use the `submissions` table.
+Open Supabase Studio, then use the `submissions` table for entries and the `sponsor_inquiries` table for sponsor inquiries.
 
 Allowed `status` values:
 
@@ -82,14 +89,24 @@ Allowed `status` values:
 - `수상확정`
 - `내년에 재도전 응원해요`
 
+Allowed sponsor inquiry `status` values:
+
+- `문의접수`
+- `검토중`
+- `연락완료`
+- `후원확정`
+- `보류`
+
 ## Privacy Retention
 
 The table includes `purge_expired_submissions()`.
+Sponsor inquiries include `purge_expired_sponsor_inquiries()`.
 
 Run it manually after one year or wire it to a scheduled job:
 
 ```sql
 select public.purge_expired_submissions();
+select public.purge_expired_sponsor_inquiries();
 ```
 
 This deletes entries older than one year according to the stated privacy policy.

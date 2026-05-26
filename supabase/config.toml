@@ -2,3 +2,6 @@ project_id = "siadaff"
 
 [functions.submit-entry]
 verify_jwt = false
+
+[functions.submit-sponsor-inquiry]
+verify_jwt = false

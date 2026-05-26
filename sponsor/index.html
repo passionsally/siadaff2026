@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="../assets/favicon.png">
     <link rel="stylesheet" href="../assets/styles.css?v=20260521-partner-uniform-size">
-    <link rel="stylesheet" href="../assets/sponsor.css?v=20260526-contact-modal">
+    <link rel="stylesheet" href="../assets/sponsor.css?v=20260526-sponsor-form">
   </head>
   <body class="sponsor-page">
     <header class="festival-header">
@@ -30,7 +30,7 @@
           <a href="/#reward">Reward</a>
           <a href="/#archive">Archive</a>
           <a href="/sponsor/">Sponsor</a>
-          <button class="submit-link js-contact-mail" type="button" data-mailto="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">후원 문의</button>
+          <a class="submit-link" href="#contact">후원 문의</a>
         </div>
       </nav>
     </header>
@@ -42,7 +42,7 @@
           <h1>SIADAFF 2026<br>후원 제안</h1>
           <p>AI·광고·영화·숏폼 창작자를 연결하는 브랜드 협업형 영화제입니다. 기업과 공공기관의 메시지가 창작자의 작품이 되고, 작품은 온라인과 시상식을 통해 다시 브랜드 경험으로 확장됩니다.</p>
           <div class="sponsor-actions">
-            <button class="btn cyan js-contact-mail" type="button" data-mailto="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">후원 문의하기</button>
+            <a class="btn cyan" href="#contact">후원 문의하기</a>
             <a class="btn outline js-pdf-link" href="/assets/SIADAFF-2026-sponsor-proposal.pdf?v=20260526-click-feedback">제안서 PDF 열기</a>
           </div>
         </div>
@@ -199,29 +199,109 @@
         <div class="contact-panel">
           <div>
             <span class="sponsor-kicker">Contact</span>
-            <h2>후원 제안과 제안서 요청은 운영사무국으로 연락해 주세요.</h2>
-            <p>기업·공공기관 내부 검토에 필요한 PDF 제안서를 제공하며, 후원 목적과 예산에 맞춰 패키지 구성을 조정해 드립니다.</p>
+            <h2>후원 문의를 남겨주세요.</h2>
+            <p>제출된 내용은 SIADAFF 운영사무국에 저장되며, 검토 후 연락드립니다.</p>
             <div class="sponsor-actions">
               <a class="btn cyan js-pdf-link" href="/assets/SIADAFF-2026-sponsor-proposal.pdf?v=20260526-click-feedback">PDF 열기</a>
-              <button class="btn black js-request-proposal" type="button" data-mailto="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EC%A0%9C%EC%95%88%EC%84%9C%20%EC%9A%94%EC%B2%AD&body=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EC%A0%9C%EC%95%88%EC%84%9C%EB%A5%BC%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%ED%9B%84%EC%9B%90%20%ED%8C%A8%ED%82%A4%EC%A7%80%EC%99%80%20%EA%B2%80%ED%86%A0%20%EC%9E%90%EB%A3%8C%EB%A5%BC%20%ED%9A%8C%EC%8B%A0%20%EB%B6%80%ED%83%81%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">제안서 요청하기</button>
+              <a class="btn black" href="mailto:dasolthebest@naver.com">이메일 문의</a>
             </div>
-            <div class="request-copy-panel" id="proposalRequestInfo" hidden>
-              <strong>메일앱이 열리지 않으면 아래 내용으로 요청해 주세요.</strong>
-              <p>받는 곳: <a href="mailto:dasolthebest@naver.com">dasolthebest@naver.com</a></p>
-              <p>제목: SIADAFF 2026 후원 제안서 요청</p>
-              <textarea readonly rows="5">SIADAFF 2026 후원 제안서 요청드립니다.
-
-후원 패키지와 검토 자료를 회신 부탁드립니다.
-
-연락처: 010-2624-6512 / 02-830-5620</textarea>
+            <div class="contact-list" aria-label="후원 문의 연락처">
+              <span>담당: SIADAFF 운영사무국</span>
+              <a href="mailto:dasolthebest@naver.com">dasolthebest@naver.com</a>
+              <a href="tel:01026246512">010-2624-6512</a>
+              <a href="tel:028305620">02-830-5620</a>
             </div>
           </div>
-          <div class="contact-list" aria-label="후원 문의 연락처">
-            <span>담당: SIADAFF 운영사무국</span>
-            <a href="mailto:dasolthebest@naver.com">dasolthebest@naver.com</a>
-            <a href="tel:01026246512">010-2624-6512</a>
-            <a href="tel:028305620">02-830-5620</a>
-          </div>
+          <form class="submission-form sponsor-contact-form" data-sponsor-form>
+            <div class="form-part">01 / 기업·기관 정보</div>
+            <div class="form-grid">
+              <label class="field">
+                <span>기업·기관명 *</span>
+                <input type="text" name="organizationName" required maxlength="120" placeholder="예: ○○기업 / ○○기관">
+              </label>
+              <label class="field">
+                <span>기관 구분 *</span>
+                <select name="organizationType" required>
+                  <option value="">선택</option>
+                  <option>기업</option>
+                  <option>공공기관</option>
+                  <option>교육기관</option>
+                  <option>콘텐츠·미디어</option>
+                  <option>기타</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>담당자명 *</span>
+                <input type="text" name="contactName" required maxlength="80">
+              </label>
+              <label class="field">
+                <span>부서·직함</span>
+                <input type="text" name="positionTitle" maxlength="120" placeholder="예: 홍보팀 매니저">
+              </label>
+              <label class="field">
+                <span>연락처 *</span>
+                <input type="tel" name="phone" required maxlength="40" placeholder="010-0000-0000">
+              </label>
+              <label class="field">
+                <span>이메일 *</span>
+                <input type="email" name="email" required>
+              </label>
+            </div>
+
+            <div class="form-part">02 / 후원 제안 내용</div>
+            <div class="form-grid">
+              <label class="field">
+                <span>관심 후원 유형 *</span>
+                <select name="interestType" required>
+                  <option value="">선택</option>
+                  <option>메인 후원</option>
+                  <option>부문 후원</option>
+                  <option>특별상 후원</option>
+                  <option>현물·미디어 후원</option>
+                  <option>협의 필요</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>예상 예산 *</span>
+                <select name="budgetRange" required>
+                  <option>협의</option>
+                  <option>500만원대</option>
+                  <option>1,000만원대</option>
+                  <option>2,000만~3,000만원</option>
+                  <option>5,000만원 이상</option>
+                  <option>1억원 규모</option>
+                </select>
+              </label>
+              <label class="field full">
+                <span>제안 내용 *</span>
+                <textarea name="message" required maxlength="2000" placeholder="후원 목적, 관심 패키지, 브랜드 과제 연계 여부, 검토 요청사항 등을 적어 주세요."></textarea>
+                <small class="help">최대 2,000자 이내</small>
+              </label>
+              <label class="field hp-field" aria-hidden="true">
+                <span>Website</span>
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+              </label>
+            </div>
+
+            <div class="form-part">03 / 동의</div>
+            <div class="consent-list">
+              <label>
+                <input type="checkbox" name="privacyConsent" required>
+                <span>후원 문의 검토, 연락, 제안서 제공을 위해 입력한 개인정보를 수집·이용하는 데 동의합니다.</span>
+              </label>
+              <label>
+                <input type="checkbox" name="marketingConsent">
+                <span>SIADAFF 관련 후원 안내, 행사 안내, 정보 제공, 협업 제안 안내 수신에 동의합니다.</span>
+              </label>
+            </div>
+            <div class="form-error" data-sponsor-form-error></div>
+            <div class="success-panel" data-sponsor-success-panel>
+              <strong>후원 문의가 저장되었습니다.</strong>
+              <p>문의번호 <span data-sponsor-inquiry-id></span></p>
+              <p data-sponsor-success-message></p>
+            </div>
+            <button class="btn cyan submit-button" type="submit">제출하기</button>
+          </form>
         </div>
         <p class="sponsor-note">후원금액은 협의하며, 후원 명칭·노출 범위·브랜드 과제 운영 여부는 후원 목적에 따라 조정됩니다.</p>
       </section>
@@ -236,134 +316,8 @@
         <p>SIADAFF 운영사무국</p>
       </div>
     </footer>
-    <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
-      <div class="contact-modal__backdrop" data-close-contact></div>
-      <div class="contact-modal__panel">
-        <button class="contact-modal__close" type="button" data-close-contact aria-label="닫기">×</button>
-        <span class="sponsor-kicker">Contact</span>
-        <h2 id="contactModalTitle">SIADAFF 운영사무국</h2>
-        <p id="contactModalLead">후원 목적과 예산에 맞춰 제안서와 패키지를 안내해 드립니다.</p>
-        <div class="contact-modal__info">
-          <strong>dasolthebest@naver.com</strong>
-          <span>010-2624-6512</span>
-          <span>02-830-5620</span>
-        </div>
-        <label for="contactModalText">문의 문구</label>
-        <textarea id="contactModalText" readonly rows="6"></textarea>
-        <div class="contact-modal__actions">
-          <button class="btn cyan" type="button" id="copyContactText">내용 복사</button>
-          <a class="btn black" id="openMailApp" href="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">메일앱 열기</a>
-        </div>
-      </div>
-    </div>
     <div class="sponsor-toast" id="sponsorToast" role="status" aria-live="polite" hidden></div>
-    <script>
-      (() => {
-        const toast = document.getElementById("sponsorToast");
-        const requestInfo = document.getElementById("proposalRequestInfo");
-        const contactModal = document.getElementById("contactModal");
-        const contactModalTitle = document.getElementById("contactModalTitle");
-        const contactModalLead = document.getElementById("contactModalLead");
-        const contactModalText = document.getElementById("contactModalText");
-        const copyContactText = document.getElementById("copyContactText");
-        const openMailApp = document.getElementById("openMailApp");
-        const contactText = [
-          "SIADAFF 2026 후원 문의드립니다.",
-          "",
-          "후원 참여 가능 범위와 패키지 안내를 받고 싶습니다.",
-          "",
-          "이메일: dasolthebest@naver.com",
-          "전화: 010-2624-6512 / 02-830-5620"
-        ].join("\n");
-        const proposalText = [
-          "SIADAFF 2026 후원 제안서 요청드립니다.",
-          "",
-          "후원 패키지와 검토 자료를 회신 부탁드립니다.",
-          "",
-          "이메일: dasolthebest@naver.com",
-          "전화: 010-2624-6512 / 02-830-5620"
-        ].join("\n");
-        let toastTimer;
-
-        const showToast = (message) => {
-          if (!toast) return;
-          toast.textContent = message;
-          toast.hidden = false;
-          toast.classList.add("is-visible");
-          clearTimeout(toastTimer);
-          toastTimer = setTimeout(() => {
-            toast.classList.remove("is-visible");
-            toast.hidden = true;
-          }, 4200);
-        };
-
-        const copyText = async (text) => {
-          if (!navigator.clipboard) return false;
-          try {
-            await navigator.clipboard.writeText(text);
-            return true;
-          } catch (error) {
-            return false;
-          }
-        };
-
-        const openContactModal = (mode, href) => {
-          if (!contactModal || !contactModalText || !openMailApp) return;
-          const isProposal = mode === "proposal";
-          contactModalTitle.textContent = isProposal ? "후원 제안서 요청" : "후원 문의";
-          contactModalLead.textContent = isProposal
-            ? "아래 문구로 제안서와 후원 패키지 자료를 요청할 수 있습니다."
-            : "아래 연락처로 후원 참여 가능 범위와 패키지 안내를 요청할 수 있습니다.";
-          contactModalText.value = isProposal ? proposalText : contactText;
-          openMailApp.href = href;
-          contactModal.hidden = false;
-          document.body.classList.add("has-contact-modal");
-          contactModalText.focus();
-        };
-
-        const closeContactModal = () => {
-          if (!contactModal) return;
-          contactModal.hidden = true;
-          document.body.classList.remove("has-contact-modal");
-        };
-
-        document.querySelectorAll(".js-pdf-link").forEach((link) => {
-          link.addEventListener("click", () => {
-            showToast("제안서 PDF를 엽니다. PDF 화면에서 저장 또는 인쇄할 수 있습니다.");
-          });
-        });
-
-        document.querySelectorAll(".js-contact-mail, .js-request-proposal").forEach((trigger) => {
-          trigger.addEventListener("click", async (event) => {
-            event.preventDefault();
-            const isProposal = trigger.classList.contains("js-request-proposal");
-            if (isProposal && requestInfo) {
-              requestInfo.hidden = false;
-              requestInfo.scrollIntoView({ behavior: "smooth", block: "nearest" });
-            }
-            openContactModal(isProposal ? "proposal" : "contact", trigger.dataset.mailto || trigger.href || openMailApp.href);
-            const didCopy = await copyText(isProposal ? proposalText : contactText);
-            showToast(didCopy
-              ? "이메일 주소와 문의 문구를 복사했습니다."
-              : "문의 안내창을 열었습니다. 이메일 주소와 문구를 확인해 주세요.");
-          });
-        });
-
-        document.querySelectorAll("[data-close-contact]").forEach((button) => {
-          button.addEventListener("click", closeContactModal);
-        });
-
-        if (copyContactText) {
-          copyContactText.addEventListener("click", async () => {
-            const didCopy = await copyText(contactModalText ? contactModalText.value : contactText);
-            showToast(didCopy ? "문의 문구를 복사했습니다." : "복사가 제한되면 문구를 직접 선택해 복사해 주세요.");
-          });
-        }
-
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") closeContactModal();
-        });
-      })();
-    </script>
+    <script src="../assets/config.js?v=20260526-sponsor-form"></script>
+    <script src="../assets/sponsor.js?v=20260526-sponsor-form"></script>
   </body>
 </html>

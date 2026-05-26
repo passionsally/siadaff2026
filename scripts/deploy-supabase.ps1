@@ -42,6 +42,7 @@ try {
     --project-ref $projectRef
 
   npx.cmd supabase functions deploy submit-entry --project-ref $projectRef --no-verify-jwt
+  npx.cmd supabase functions deploy submit-sponsor-inquiry --project-ref $projectRef --no-verify-jwt
 }
 finally {
   Pop-Location
