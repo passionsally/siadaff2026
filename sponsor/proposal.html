@@ -21,6 +21,53 @@
         word-break: keep-all;
       }
 
+      .proposal-toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        min-height: 64px;
+        padding: 12px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        color: #ffffff;
+        background: #050606;
+        border-bottom: 1px solid rgba(83, 199, 208, .45);
+      }
+
+      .proposal-toolbar__brand {
+        color: rgba(255, 255, 255, .72);
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .proposal-toolbar__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .proposal-toolbar a {
+        min-height: 40px;
+        padding: 0 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #061012;
+        background: #53c7d0;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 950;
+      }
+
+      .proposal-toolbar a.secondary {
+        color: #ffffff;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, .45);
+      }
+
       section {
         page-break-after: always;
         min-height: 260mm;
@@ -182,9 +229,38 @@
         color: #6b767c;
         font-size: 12px;
       }
+
+      @media print {
+        .proposal-toolbar {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .proposal-toolbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .proposal-toolbar__actions {
+          width: 100%;
+        }
+
+        .proposal-toolbar a {
+          flex: 1;
+          min-width: 150px;
+        }
+      }
     </style>
   </head>
   <body>
+    <nav class="proposal-toolbar" aria-label="제안서 보기 도구">
+      <div class="proposal-toolbar__brand">SIADAFF 2026 Sponsorship Proposal</div>
+      <div class="proposal-toolbar__actions">
+        <a href="/sponsor/">후원 페이지로 돌아가기</a>
+        <a class="secondary" href="/assets/SIADAFF-2026-sponsor-proposal.pdf?v=20260526-click-feedback" download>PDF 저장</a>
+      </div>
+    </nav>
     <section class="cover">
       <span class="kicker">SIADAFF 2026 Partnership Proposal</span>
       <h1>서울국제광고영화제<br>후원 제안서</h1>

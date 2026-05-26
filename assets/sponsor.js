@@ -46,7 +46,7 @@ function setSponsorSubmitting(isSubmitting) {
 
 document.querySelectorAll(".js-pdf-link").forEach((link) => {
   link.addEventListener("click", () => {
-    showSponsorToast("제안서 PDF를 엽니다. PDF 화면에서 저장 또는 인쇄할 수 있습니다.");
+    showSponsorToast("제안서 보기 페이지로 이동합니다. 브라우저 뒤로가기로 후원 페이지에 돌아올 수 있습니다.");
   });
 });
 
