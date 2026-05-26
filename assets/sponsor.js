@@ -7,6 +7,29 @@ const sponsorSubmitButton = sponsorForm?.querySelector("button[type='submit']");
 const sponsorToast = document.getElementById("sponsorToast");
 
 const sponsorConfig = window.SIADAFF_CONFIG || {};
+const sponsorLang = document.documentElement.lang?.toLowerCase().startsWith("en") ? "en" : "ko";
+const sponsorCopy = {
+  ko: {
+    submit: "제출하기",
+    loading: "저장 중",
+    proposalToast: "제안서 보기 페이지로 이동합니다. 브라우저 뒤로가기로 후원 페이지에 돌아올 수 있습니다.",
+    missingEndpoint: "후원 문의 저장 API 주소가 아직 설정되지 않았습니다.",
+    saveError: "후원 문의 저장 중 오류가 발생했습니다.",
+    successStatus: (status) => `상태는 ${status || "문의접수"}입니다. 운영사무국에서 확인 후 연락드리겠습니다.`
+  },
+  en: {
+    submit: "Submit Inquiry",
+    loading: "Saving",
+    proposalToast: "Opening the proposal page. You can return to this partnership page with your browser back button.",
+    missingEndpoint: "The sponsorship inquiry API endpoint has not been configured yet.",
+    saveError: "Something went wrong while saving your sponsorship inquiry.",
+    successStatus: (status) => {
+      const localizedStatus = status === "문의접수" || !status ? "Inquiry received" : status;
+      return `Status: ${localizedStatus}. The SIADAFF Office will review your message and follow up.`;
+    }
+  }
+};
+const activeSponsorCopy = sponsorCopy[sponsorLang];
 let sponsorToastTimer;
 
 function showSponsorToast(message) {
@@ -41,12 +64,14 @@ function buildSponsorPayload(data) {
 
 function setSponsorSubmitting(isSubmitting) {
   sponsorSubmitButton.disabled = isSubmitting;
-  sponsorSubmitButton.textContent = isSubmitting ? "저장 중" : "제출하기";
+  sponsorSubmitButton.textContent = isSubmitting
+    ? sponsorSubmitButton.dataset.loadingText || activeSponsorCopy.loading
+    : sponsorSubmitButton.dataset.defaultText || activeSponsorCopy.submit;
 }
 
 document.querySelectorAll(".js-pdf-link").forEach((link) => {
   link.addEventListener("click", () => {
-    showSponsorToast("제안서 보기 페이지로 이동합니다. 브라우저 뒤로가기로 후원 페이지에 돌아올 수 있습니다.");
+    showSponsorToast(activeSponsorCopy.proposalToast);
   });
 });
 
@@ -61,7 +86,7 @@ if (sponsorForm) {
     }
 
     if (!sponsorConfig.sponsorInquiryEndpoint) {
-      showSponsorError("후원 문의 저장 API 주소가 아직 설정되지 않았습니다.");
+      showSponsorError(activeSponsorCopy.missingEndpoint);
       return;
     }
 
@@ -80,16 +105,16 @@ if (sponsorForm) {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(result.error || "후원 문의 저장 중 오류가 발생했습니다.");
+        throw new Error(sponsorLang === "ko" ? result.error || activeSponsorCopy.saveError : activeSponsorCopy.saveError);
       }
 
       sponsorInquiryTarget.textContent = result.inquiryNo;
-      sponsorSuccessMessage.textContent = `상태는 ${result.status || "문의접수"}입니다. 운영사무국에서 확인 후 연락드리겠습니다.`;
+      sponsorSuccessMessage.textContent = activeSponsorCopy.successStatus(result.status);
       sponsorSuccessPanel.classList.add("is-visible");
       sponsorSuccessPanel.scrollIntoView({ behavior: "smooth", block: "center" });
       sponsorForm.reset();
     } catch (error) {
-      showSponsorError(error.message || "후원 문의 저장 중 오류가 발생했습니다.");
+      showSponsorError(error.message || activeSponsorCopy.saveError);
     } finally {
       setSponsorSubmitting(false);
     }
