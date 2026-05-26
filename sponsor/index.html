@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="../assets/favicon.png">
     <link rel="stylesheet" href="../assets/styles.css?v=20260521-partner-uniform-size">
-    <link rel="stylesheet" href="../assets/sponsor.css?v=20260526-click-feedback">
+    <link rel="stylesheet" href="../assets/sponsor.css?v=20260526-contact-modal">
   </head>
   <body class="sponsor-page">
     <header class="festival-header">
@@ -30,7 +30,7 @@
           <a href="/#reward">Reward</a>
           <a href="/#archive">Archive</a>
           <a href="/sponsor/">Sponsor</a>
-          <a class="submit-link js-contact-mail" href="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">후원 문의</a>
+          <button class="submit-link js-contact-mail" type="button" data-mailto="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">후원 문의</button>
         </div>
       </nav>
     </header>
@@ -42,7 +42,7 @@
           <h1>SIADAFF 2026<br>후원 제안</h1>
           <p>AI·광고·영화·숏폼 창작자를 연결하는 브랜드 협업형 영화제입니다. 기업과 공공기관의 메시지가 창작자의 작품이 되고, 작품은 온라인과 시상식을 통해 다시 브랜드 경험으로 확장됩니다.</p>
           <div class="sponsor-actions">
-            <a class="btn cyan js-contact-mail" href="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">후원 문의하기</a>
+            <button class="btn cyan js-contact-mail" type="button" data-mailto="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">후원 문의하기</button>
             <a class="btn outline js-pdf-link" href="/assets/SIADAFF-2026-sponsor-proposal.pdf?v=20260526-click-feedback">제안서 PDF 열기</a>
           </div>
         </div>
@@ -203,7 +203,7 @@
             <p>기업·공공기관 내부 검토에 필요한 PDF 제안서를 제공하며, 후원 목적과 예산에 맞춰 패키지 구성을 조정해 드립니다.</p>
             <div class="sponsor-actions">
               <a class="btn cyan js-pdf-link" href="/assets/SIADAFF-2026-sponsor-proposal.pdf?v=20260526-click-feedback">PDF 열기</a>
-              <a class="btn black js-request-proposal" href="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EC%A0%9C%EC%95%88%EC%84%9C%20%EC%9A%94%EC%B2%AD&body=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EC%A0%9C%EC%95%88%EC%84%9C%EB%A5%BC%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%ED%9B%84%EC%9B%90%20%ED%8C%A8%ED%82%A4%EC%A7%80%EC%99%80%20%EA%B2%80%ED%86%A0%20%EC%9E%90%EB%A3%8C%EB%A5%BC%20%ED%9A%8C%EC%8B%A0%20%EB%B6%80%ED%83%81%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">제안서 요청하기</a>
+              <button class="btn black js-request-proposal" type="button" data-mailto="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EC%A0%9C%EC%95%88%EC%84%9C%20%EC%9A%94%EC%B2%AD&body=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EC%A0%9C%EC%95%88%EC%84%9C%EB%A5%BC%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%ED%9B%84%EC%9B%90%20%ED%8C%A8%ED%82%A4%EC%A7%80%EC%99%80%20%EA%B2%80%ED%86%A0%20%EC%9E%90%EB%A3%8C%EB%A5%BC%20%ED%9A%8C%EC%8B%A0%20%EB%B6%80%ED%83%81%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">제안서 요청하기</button>
             </div>
             <div class="request-copy-panel" id="proposalRequestInfo" hidden>
               <strong>메일앱이 열리지 않으면 아래 내용으로 요청해 주세요.</strong>
@@ -236,13 +236,42 @@
         <p>SIADAFF 운영사무국</p>
       </div>
     </footer>
+    <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" hidden>
+      <div class="contact-modal__backdrop" data-close-contact></div>
+      <div class="contact-modal__panel">
+        <button class="contact-modal__close" type="button" data-close-contact aria-label="닫기">×</button>
+        <span class="sponsor-kicker">Contact</span>
+        <h2 id="contactModalTitle">SIADAFF 운영사무국</h2>
+        <p id="contactModalLead">후원 목적과 예산에 맞춰 제안서와 패키지를 안내해 드립니다.</p>
+        <div class="contact-modal__info">
+          <strong>dasolthebest@naver.com</strong>
+          <span>010-2624-6512</span>
+          <span>02-830-5620</span>
+        </div>
+        <label for="contactModalText">문의 문구</label>
+        <textarea id="contactModalText" readonly rows="6"></textarea>
+        <div class="contact-modal__actions">
+          <button class="btn cyan" type="button" id="copyContactText">내용 복사</button>
+          <a class="btn black" id="openMailApp" href="mailto:dasolthebest@naver.com?subject=SIADAFF%202026%20%ED%9B%84%EC%9B%90%20%EB%AC%B8%EC%9D%98">메일앱 열기</a>
+        </div>
+      </div>
+    </div>
     <div class="sponsor-toast" id="sponsorToast" role="status" aria-live="polite" hidden></div>
     <script>
       (() => {
         const toast = document.getElementById("sponsorToast");
         const requestInfo = document.getElementById("proposalRequestInfo");
+        const contactModal = document.getElementById("contactModal");
+        const contactModalTitle = document.getElementById("contactModalTitle");
+        const contactModalLead = document.getElementById("contactModalLead");
+        const contactModalText = document.getElementById("contactModalText");
+        const copyContactText = document.getElementById("copyContactText");
+        const openMailApp = document.getElementById("openMailApp");
         const contactText = [
-          "SIADAFF 2026 후원 문의",
+          "SIADAFF 2026 후원 문의드립니다.",
+          "",
+          "후원 참여 가능 범위와 패키지 안내를 받고 싶습니다.",
+          "",
           "이메일: dasolthebest@naver.com",
           "전화: 010-2624-6512 / 02-830-5620"
         ].join("\n");
@@ -278,28 +307,61 @@
           }
         };
 
+        const openContactModal = (mode, href) => {
+          if (!contactModal || !contactModalText || !openMailApp) return;
+          const isProposal = mode === "proposal";
+          contactModalTitle.textContent = isProposal ? "후원 제안서 요청" : "후원 문의";
+          contactModalLead.textContent = isProposal
+            ? "아래 문구로 제안서와 후원 패키지 자료를 요청할 수 있습니다."
+            : "아래 연락처로 후원 참여 가능 범위와 패키지 안내를 요청할 수 있습니다.";
+          contactModalText.value = isProposal ? proposalText : contactText;
+          openMailApp.href = href;
+          contactModal.hidden = false;
+          document.body.classList.add("has-contact-modal");
+          contactModalText.focus();
+        };
+
+        const closeContactModal = () => {
+          if (!contactModal) return;
+          contactModal.hidden = true;
+          document.body.classList.remove("has-contact-modal");
+        };
+
         document.querySelectorAll(".js-pdf-link").forEach((link) => {
           link.addEventListener("click", () => {
             showToast("제안서 PDF를 엽니다. PDF 화면에서 저장 또는 인쇄할 수 있습니다.");
           });
         });
 
-        document.querySelectorAll(".js-contact-mail, .js-request-proposal").forEach((link) => {
-          link.addEventListener("click", async (event) => {
+        document.querySelectorAll(".js-contact-mail, .js-request-proposal").forEach((trigger) => {
+          trigger.addEventListener("click", async (event) => {
             event.preventDefault();
-            const isProposal = link.classList.contains("js-request-proposal");
+            const isProposal = trigger.classList.contains("js-request-proposal");
             if (isProposal && requestInfo) {
               requestInfo.hidden = false;
               requestInfo.scrollIntoView({ behavior: "smooth", block: "nearest" });
             }
+            openContactModal(isProposal ? "proposal" : "contact", trigger.dataset.mailto || trigger.href || openMailApp.href);
             const didCopy = await copyText(isProposal ? proposalText : contactText);
             showToast(didCopy
-              ? "메일앱이 열리지 않아도 보낼 수 있도록 이메일 주소와 요청 문구를 복사했습니다."
-              : "메일앱이 열리지 않으면 dasolthebest@naver.com 으로 문의해 주세요.");
-            window.setTimeout(() => {
-              window.location.href = link.href;
-            }, 250);
+              ? "이메일 주소와 문의 문구를 복사했습니다."
+              : "문의 안내창을 열었습니다. 이메일 주소와 문구를 확인해 주세요.");
           });
+        });
+
+        document.querySelectorAll("[data-close-contact]").forEach((button) => {
+          button.addEventListener("click", closeContactModal);
+        });
+
+        if (copyContactText) {
+          copyContactText.addEventListener("click", async () => {
+            const didCopy = await copyText(contactModalText ? contactModalText.value : contactText);
+            showToast(didCopy ? "문의 문구를 복사했습니다." : "복사가 제한되면 문구를 직접 선택해 복사해 주세요.");
+          });
+        }
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeContactModal();
         });
       })();
     </script>
