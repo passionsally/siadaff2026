@@ -4,3 +4,4 @@ supabase/.temp/
 supabase/supabase/
 .env
 .env.local
+internal/
