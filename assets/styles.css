@@ -845,6 +845,54 @@ textarea {
   box-shadow: 0 22px 58px rgba(0, 0, 0, .1);
 }
 
+.submission-fields {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.submission-fields:disabled {
+  opacity: .48;
+}
+
+.member-panel {
+  margin-bottom: 28px;
+  padding: 22px;
+  border: 2px solid var(--cyan);
+  border-radius: var(--radius);
+  background: #f5feff;
+}
+
+.member-actions,
+.member-session {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.member-actions {
+  margin-top: 16px;
+}
+
+.member-actions .btn {
+  border: 0;
+}
+
+.member-session {
+  justify-content: space-between;
+}
+
+.ghost-member-button {
+  padding: 10px 16px;
+  border: 1px solid #cad5d6;
+  border-radius: 999px;
+  background: var(--white);
+  font-weight: 850;
+  cursor: pointer;
+}
+
 .form-part {
   margin: 28px 0 16px;
   color: var(--pink);
