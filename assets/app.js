@@ -1,3 +1,5 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.8";
+
 const form = document.querySelector("[data-submit-form]");
 const categorySelect = document.querySelector("#category");
 const titleInput = document.querySelector("#entryTitle");
@@ -20,7 +22,7 @@ const memberEmailTarget = document.querySelector("[data-member-email]");
 const applicantEmailInput = document.querySelector("#email");
 
 const config = window.SIADAFF_CONFIG || {};
-const supabaseClient = window.supabase?.createClient(
+const supabaseClient = createClient(
   config.supabaseUrl,
   config.supabasePublishableKey
 );
