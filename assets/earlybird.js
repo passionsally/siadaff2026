@@ -45,7 +45,7 @@ async function start() {
     } catch (exception) {
       error(exception.message || "결제를 시작하지 못했습니다.");
       button.disabled = false;
-      button.textContent = "29,900원 결제하기";
+      button.textContent = "29,900원 신청 + 결제하기";
     }
   });
 }
