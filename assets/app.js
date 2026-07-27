@@ -2,7 +2,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.8";
 
 const form = document.querySelector("[data-submit-form]");
 const categorySelect = document.querySelector("#category");
-const titleInput = document.querySelector("#entryTitle");
+const titleSelect = document.querySelector("#entryTitle");
 const errorBox = document.querySelector("[data-form-error]");
 const successPanel = document.querySelector("[data-success-panel]");
 const receiptTarget = document.querySelector("[data-receipt-id]");
@@ -43,10 +43,16 @@ const consentFields = [
   "teamParticipationConsent"
 ];
 
-function syncTitle() {
-  const selected = categorySelect.value;
-  const label = categoryNames[selected] || "00";
-  titleInput.value = `서울국제광고영화제 SIADAFF 1회 ${label} 부문 출품작`;
+function syncTitleFromCategory() {
+  const label = categoryNames[categorySelect.value];
+  titleSelect.value = label ? `SIADAFF 1회 ${label} 부문 출품작` : "";
+}
+
+function syncCategoryFromTitle() {
+  const selectedOption = titleSelect.selectedOptions[0];
+  if (selectedOption?.dataset.category) {
+    categorySelect.value = selectedOption.dataset.category;
+  }
 }
 
 function syncApplicantType() {
@@ -160,10 +166,11 @@ document.querySelector("[data-sign-out]").addEventListener("click", async () => 
 });
 supabaseClient.auth.getSession().then(({ data }) => renderSession(data.session));
 supabaseClient.auth.onAuthStateChange((_event, session) => renderSession(session));
-categorySelect.addEventListener("change", syncTitle);
+categorySelect.addEventListener("change", syncTitleFromCategory);
+titleSelect.addEventListener("change", syncCategoryFromTitle);
 ageGroupSelect.addEventListener("change", syncApplicantType);
 businessNumberInput.addEventListener("input", normalizeBusinessNumber);
-syncTitle();
+syncTitleFromCategory();
 syncApplicantType();
 initReveal();
 
@@ -213,7 +220,7 @@ form.addEventListener("submit", async (event) => {
     successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
     form.reset();
     renderSession(currentSession);
-    syncTitle();
+    syncTitleFromCategory();
     syncApplicantType();
   } catch (error) {
     showError(error.message || "접수 저장 중 오류가 발생했습니다.");

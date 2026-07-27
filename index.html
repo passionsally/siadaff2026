@@ -487,8 +487,13 @@
 
               <div class="field full">
                 <label for="entryTitle">접수 제목</label>
-                <input id="entryTitle" name="entryTitle" required>
-                <span class="help">형식: 서울국제광고영화제 SIADAFF 1회 00부문 출품작</span>
+                <select id="entryTitle" name="entryTitle" required>
+                  <option value="SIADAFF 1회 포스터 부문 출품작" data-category="Brand Poster">SIADAFF 1회 포스터 부문 출품작</option>
+                  <option value="SIADAFF 1회 39초 광고영상 부문 출품작" data-category="Ad Film">SIADAFF 1회 39초 광고영상 부문 출품작</option>
+                  <option value="SIADAFF 1회 59초 숏폼드라마 부문 출품작" data-category="Short-form Drama">SIADAFF 1회 59초 숏폼드라마 부문 출품작</option>
+                  <option value="SIADAFF 1회 3분 단편영화 부문 출품작" data-category="Short Film">SIADAFF 1회 3분 단편영화 부문 출품작</option>
+                </select>
+                <span class="help">출품 분야에 맞는 접수 제목을 선택하세요.</span>
               </div>
 
               <div class="field full">
@@ -601,6 +606,6 @@
     </footer>
 
     <script src="assets/config.js?v=20260728-member-auth"></script>
-    <script type="module" src="assets/app.js?v=20260728-member-auth-module"></script>
+    <script type="module" src="assets/app.js?v=20260728-entry-title-options"></script>
   </body>
 </html>
