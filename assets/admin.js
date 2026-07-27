@@ -117,7 +117,7 @@ function renderSubmissions() {
         <td><strong>${escapeHtml(row.receipt_no)}</strong></td>
         <td>${escapeHtml(row.category)}</td>
         <td><strong>${escapeHtml(title)}</strong>${titleEn}${urlText}</td>
-        <td>${escapeHtml(row.age_group)}<br><span class="muted">${escapeHtml(row.production_type)} / ${escapeHtml(row.runtime_or_size)}</span></td>
+        <td>${escapeHtml(row.age_group)}<br><span class="muted">${escapeHtml(row.production_type)} / ${escapeHtml(row.runtime_or_size)}</span>${row.business_registration_number ? `<br><span class="muted">사업자 ${escapeHtml(row.business_registration_number)}</span>` : ""}</td>
         <td><strong>${escapeHtml(row.name)}</strong><span class="muted">${row.ai_used ? "AI 활용" : "AI 미활용"}</span></td>
         <td>${escapeHtml(row.phone)}<br><span class="muted">${escapeHtml(row.email)}</span></td>
         <td class="manage-cell">${manageForm("submission", row.receipt_no, row.status, row.admin_memo)}</td>
@@ -258,7 +258,7 @@ async function saveManagedRecord(form) {
 function downloadCsv() {
   const rows = currentRows();
   const headers = activeTab === "submissions"
-    ? ["created_at", "receipt_no", "category", "title_ko", "title_en", "age_group", "production_type", "name", "phone", "email", "status", "admin_memo"]
+    ? ["created_at", "receipt_no", "category", "title_ko", "title_en", "age_group", "production_type", "business_registration_number", "name", "phone", "email", "status", "admin_memo"]
     : ["created_at", "inquiry_no", "organization_name", "organization_type", "contact_name", "phone", "email", "interest_type", "budget_range", "status", "admin_memo", "message"];
   const csv = [
     headers.join(","),

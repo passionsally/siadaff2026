@@ -47,7 +47,7 @@ function asString(value: unknown) {
 }
 
 function submissionFields() {
-  return "receipt_no,category,title_ko,title_en,work_title,age_group,production_type,runtime_or_size,ai_used,ai_description,synopsis_ko,synopsis_en,synopsis,youtube_url,instagram_url,tiktok_url,name,phone,email,status,admin_memo,created_at,updated_at";
+  return "receipt_no,category,title_ko,title_en,work_title,age_group,production_type,business_registration_number,runtime_or_size,ai_used,ai_description,synopsis_ko,synopsis_en,synopsis,youtube_url,instagram_url,tiktok_url,name,phone,email,status,admin_memo,created_at,updated_at";
 }
 
 function sponsorFields() {

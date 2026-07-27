@@ -6,13 +6,17 @@ const successPanel = document.querySelector("[data-success-panel]");
 const receiptTarget = document.querySelector("[data-receipt-id]");
 const successMessage = document.querySelector("[data-success-message]");
 const submitButton = form.querySelector("button[type='submit']");
+const productionTypeSelect = document.querySelector("#productionType");
+const businessNumberField = document.querySelector("#businessNumberField");
+const businessNumberInput = document.querySelector("#businessRegistrationNumber");
 
 const config = window.SIADAFF_CONFIG || {};
 
 const categoryNames = {
-  "Brand Poster": "Brand Poster",
-  "Ad Film": "Ad Film",
-  "Short-form Drama": "Short-form Drama"
+  "Brand Poster": "포스터",
+  "Ad Film": "39초 광고영상",
+  "Short-form Drama": "59초 숏폼드라마",
+  "Short Film": "3분 단편영화"
 };
 
 const consentFields = [
@@ -27,6 +31,22 @@ function syncTitle() {
   const selected = categorySelect.value;
   const label = categoryNames[selected] || "00";
   titleInput.value = `서울국제광고영화제 SIADAFF 1회 ${label} 부문 출품작`;
+}
+
+function syncApplicantType() {
+  const isCompany = productionTypeSelect.value === "회사출품";
+  businessNumberField.hidden = !isCompany;
+  businessNumberInput.required = isCompany;
+  if (!isCompany) businessNumberInput.value = "";
+}
+
+function normalizeBusinessNumber() {
+  businessNumberInput.value = businessNumberInput.value
+    .replace(/\D/g, "")
+    .slice(0, 10)
+    .replace(/^(\d{3})(\d{0,2})(\d{0,5}).*$/, (_, a, b, c) =>
+      [a, b, c].filter(Boolean).join("-")
+    );
 }
 
 function hasOneSnsUrl(data) {
@@ -78,7 +98,10 @@ function initReveal() {
 }
 
 categorySelect.addEventListener("change", syncTitle);
+productionTypeSelect.addEventListener("change", syncApplicantType);
+businessNumberInput.addEventListener("input", normalizeBusinessNumber);
 syncTitle();
+syncApplicantType();
 initReveal();
 
 form.addEventListener("submit", async (event) => {
@@ -125,6 +148,7 @@ form.addEventListener("submit", async (event) => {
     successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
     form.reset();
     syncTitle();
+    syncApplicantType();
   } catch (error) {
     showError(error.message || "접수 저장 중 오류가 발생했습니다.");
   } finally {
