@@ -191,17 +191,16 @@
         </div>
 
         <div class="section-title judging-title">
-          <span>Age Groups</span>
-          <h2>연령부문</h2>
+          <span>Entry Divisions</span>
+          <h2>출품 구분</h2>
         </div>
 
-        <div class="age-strip" aria-label="출품 마감일 기준 만 나이 연령부문">
-          <div><span>청소년부</span><strong>만 10~19세</strong></div>
-          <div><span>청년부</span><strong>만 20~39세</strong></div>
-          <div><span>중장년부</span><strong>만 40~59세</strong></div>
-          <div><span>시니어부</span><strong>만 60세 이상</strong></div>
+        <div class="age-strip" aria-label="개인 및 단체 출품 구분">
+          <div><span>개인출품</span><strong>10~19세 청소년부</strong></div>
+          <div><span>개인출품</span><strong>20세 이상 성인부</strong></div>
+          <div><span>단체출품</span><strong>사업자등록 단체</strong></div>
         </div>
-        <p class="section-note">개인출품은 신청자, 회사출품은 작품 책임 창작자를 기준으로 연령부문을 적용합니다. 회사출품 시 유효한 사업자등록번호를 입력해야 합니다.</p>
+        <p class="section-note">개인출품은 신청자의 출품 마감일 기준 나이로 구분합니다. 단체출품은 유효한 사업자등록번호를 입력해야 합니다.</p>
       </section>
 
       <section class="overview-section">
@@ -447,14 +446,14 @@
               </div>
 
               <div class="field">
-                <label for="ageGroup">연령 부문</label>
+                <label for="ageGroup">출품 구분</label>
                 <select id="ageGroup" name="ageGroup" required>
                   <option value="">선택</option>
-                  <option>청소년부</option>
-                  <option>청년부</option>
-                  <option>중장년부</option>
-                  <option>시니어부</option>
+                  <option value="청소년부">개인출품 · 10~19세 청소년부</option>
+                  <option value="성인부">개인출품 · 20세 이상 성인부</option>
+                  <option value="단체출품">단체출품</option>
                 </select>
+                <input id="productionType" name="productionType" type="hidden" value="">
               </div>
 
               <div class="field full">
@@ -478,19 +477,10 @@
                 <input id="titleEn" name="titleEn" lang="en" placeholder="Enter the English title" required>
               </div>
 
-              <div class="field">
-                <label for="productionType">출품자 유형</label>
-                <select id="productionType" name="productionType" required>
-                  <option value="">선택</option>
-                  <option value="개인출품">개인출품</option>
-                  <option value="회사출품">회사출품</option>
-                </select>
-              </div>
-
               <div class="field" id="businessNumberField" hidden>
                 <label for="businessRegistrationNumber">사업자등록번호</label>
                 <input id="businessRegistrationNumber" name="businessRegistrationNumber" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="000-00-00000" aria-describedby="businessNumberHelp">
-                <span class="help" id="businessNumberHelp">회사출품 선택 시 필수 입력</span>
+                <span class="help" id="businessNumberHelp">단체출품 선택 시 필수 입력</span>
               </div>
 
               <div class="field">

@@ -6,6 +6,7 @@ const successPanel = document.querySelector("[data-success-panel]");
 const receiptTarget = document.querySelector("[data-receipt-id]");
 const successMessage = document.querySelector("[data-success-message]");
 const submitButton = form.querySelector("button[type='submit']");
+const ageGroupSelect = document.querySelector("#ageGroup");
 const productionTypeSelect = document.querySelector("#productionType");
 const businessNumberField = document.querySelector("#businessNumberField");
 const businessNumberInput = document.querySelector("#businessRegistrationNumber");
@@ -34,10 +35,13 @@ function syncTitle() {
 }
 
 function syncApplicantType() {
-  const isCompany = productionTypeSelect.value === "회사출품";
-  businessNumberField.hidden = !isCompany;
-  businessNumberInput.required = isCompany;
-  if (!isCompany) businessNumberInput.value = "";
+  const isGroup = ageGroupSelect.value === "단체출품";
+  productionTypeSelect.value = ageGroupSelect.value
+    ? (isGroup ? "단체출품" : "개인출품")
+    : "";
+  businessNumberField.hidden = !isGroup;
+  businessNumberInput.required = isGroup;
+  if (!isGroup) businessNumberInput.value = "";
 }
 
 function normalizeBusinessNumber() {
@@ -98,7 +102,7 @@ function initReveal() {
 }
 
 categorySelect.addEventListener("change", syncTitle);
-productionTypeSelect.addEventListener("change", syncApplicantType);
+ageGroupSelect.addEventListener("change", syncApplicantType);
 businessNumberInput.addEventListener("input", normalizeBusinessNumber);
 syncTitle();
 syncApplicantType();

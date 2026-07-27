@@ -413,7 +413,7 @@ textarea {
 
 .age-strip {
   min-height: 132px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .score-strip div,
