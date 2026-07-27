@@ -82,8 +82,6 @@ function validate(payload: Payload) {
   const synopsisKo = asString(payload, "synopsisKo");
   const synopsisEn = asString(payload, "synopsisEn");
   const youtubeUrl = asString(payload, "youtubeUrl");
-  const instagramUrl = asString(payload, "instagramUrl");
-  const tiktokUrl = asString(payload, "tiktokUrl");
   const name = asString(payload, "name");
   const phone = asString(payload, "phone");
   const email = asString(payload, "email");
@@ -126,24 +124,12 @@ function validate(payload: Payload) {
     return "시놉시스 또는 카피는 최대 1,200자 이내로 작성해 주세요.";
   }
 
-  if (!youtubeUrl && !instagramUrl && !tiktokUrl) {
-    return "유튜브, 인스타그램, 틱톡 URL 중 최소 1개를 입력해 주세요.";
+  if (!youtubeUrl) {
+    return "원본 영상 유튜브 URL을 입력해 주세요.";
   }
 
-  if (![youtubeUrl, instagramUrl, tiktokUrl].every(isHttpUrl)) {
-    return "SNS URL은 http 또는 https 주소여야 합니다.";
-  }
-
-  if (!hostMatches(youtubeUrl, ["youtube.com", "youtu.be"])) {
-    return "유튜브 URL 형식을 확인해 주세요.";
-  }
-
-  if (!hostMatches(instagramUrl, ["instagram.com"])) {
-    return "인스타그램 URL 형식을 확인해 주세요.";
-  }
-
-  if (!hostMatches(tiktokUrl, ["tiktok.com"])) {
-    return "틱톡 URL 형식을 확인해 주세요.";
+  if (!isHttpUrl(youtubeUrl) || !hostMatches(youtubeUrl, ["youtube.com", "youtu.be"])) {
+    return "원본 영상은 유튜브 URL이어야 합니다.";
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -221,7 +207,17 @@ Deno.serve(async (request) => {
     },
   });
 
+  const authorization = request.headers.get("authorization") || "";
+  const accessToken = authorization.replace(/^Bearer\s+/i, "").trim();
+  if (!accessToken) return json({ error: "로그인이 필요합니다." }, 401, origin);
+  const { data: authData, error: authError } = await supabase.auth.getUser(accessToken);
+  if (authError || !authData.user?.id) return json({ error: "로그인 세션이 유효하지 않습니다." }, 401, origin);
+  if (authData.user.email?.toLowerCase() !== asString(payload, "email").toLowerCase()) {
+    return json({ error: "로그인 이메일과 신청 이메일이 일치해야 합니다." }, 400, origin);
+  }
+
   const row = {
+    user_id: authData.user.id,
     category: asString(payload, "category"),
     entry_title: asString(payload, "entryTitle"),
     work_title: asString(payload, "workTitle"),
@@ -239,8 +235,8 @@ Deno.serve(async (request) => {
     synopsis_ko: asString(payload, "synopsisKo"),
     synopsis_en: asString(payload, "synopsisEn"),
     youtube_url: asString(payload, "youtubeUrl") || null,
-    instagram_url: asString(payload, "instagramUrl") || null,
-    tiktok_url: asString(payload, "tiktokUrl") || null,
+    instagram_url: null,
+    tiktok_url: null,
     name: asString(payload, "name"),
     phone: asString(payload, "phone"),
     email: asString(payload, "email"),

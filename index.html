@@ -332,11 +332,11 @@
           </article>
 
           <article class="rule-panel">
-            <span>SNS Review</span>
-            <h2>SNS URL 심사 조건</h2>
+            <span>Video Review</span>
+            <h2>원본 영상 URL 심사 조건</h2>
             <ul>
-              <li>유튜브, 인스타그램, 틱톡 URL 중 최소 1개 이상 제출합니다.</li>
-              <li>제출 URL은 공개 게시물이어야 합니다.</li>
+              <li>원본 영상을 유튜브에 ‘일부 공개’로 업로드하고 URL을 제출합니다.</li>
+              <li>유튜브 ‘비공개’ 영상과 SNS 하이라이트 URL은 제출하지 않습니다.</li>
               <li>심사 종료일까지 삭제 또는 비공개 전환을 금지합니다.</li>
               <li>URL 오류, 비공개, 삭제 상태의 작품은 심사 제외될 수 있습니다.</li>
               <li>수상작은 심사 종료 후에도 삭제할 수 없습니다.</li>
@@ -360,7 +360,7 @@
             <span>Privacy</span>
             <h2>개인정보 수집 기준</h2>
             <ul>
-              <li>수집 항목은 이름, 연락처, 이메일, 개인정보 활용 동의 여부입니다.</li>
+              <li>수집 항목은 회원 이메일, 이름, 연락처, 원본 영상 URL, 개인정보 활용 동의 여부입니다.</li>
               <li>수집 목적은 영화제 참가출품, 운영 안내, 관련 행사 및 프로그램 안내, 홍보·마케팅 정보 제공입니다.</li>
               <li>보관 기간은 1년입니다.</li>
               <li>이용 범위는 SIADAFF 및 주최·주관사가 운영하거나 연계하는 영화제, 공모전, 교육, 해커톤, 후속 프로그램의 안내·운영·정보제공·홍보·마케팅 연락입니다.</li>
@@ -396,12 +396,12 @@
           <article>
             <span>01</span>
             <h3>접수완료</h3>
-            <p>출품 정보와 SNS URL이 정상 접수된 상태입니다.</p>
+            <p>회원 정보, 출품 정보와 원본 영상 URL이 정상 접수된 상태입니다.</p>
           </article>
           <article>
             <span>02</span>
             <h3>검토중</h3>
-            <p>공개 URL, 규정 적합성, 심사 기준을 확인합니다.</p>
+            <p>유튜브 일부 공개 URL, 규정 적합성, 심사 기준을 확인합니다.</p>
           </article>
           <article>
             <span>03</span>
@@ -416,18 +416,46 @@
           <aside class="submit-intro">
             <img src="assets/logo-korean-white.png" alt="서울국제광고영화제 SIADAFF">
             <span>Submit</span>
-            <h2>회원가입 없이 SNS URL로 출품합니다</h2>
-            <p>파일 업로드는 받지 않습니다. 유튜브, 인스타그램, 틱톡 중 공개 게시물 URL을 최소 1개 입력하세요.</p>
+            <h2>회원가입 후 원본 영상 URL로 출품합니다</h2>
+            <p>원본 영상은 유튜브에 일부 공개로 올린 뒤 URL을 제출하세요. 비공개 영상과 SNS 하이라이트 URL은 받지 않습니다.</p>
             <p>국내 참가자는 공식 홈페이지에서 출품권을 결제한 후 접수하며, 해외 참가자는 추후 FilmFreeway 영어 페이지에서 참가비를 결제하고 접수할 예정입니다. 판매 단계별 가격과 신청 링크는 별도 안내합니다.</p>
             <a class="btn cyan" href="/earlybird/">슈퍼얼리버드 출품권 구매</a>
             <ol>
               <li><strong>01</strong> 작품 정보</li>
-              <li><strong>02</strong> SNS URL</li>
-              <li><strong>03</strong> 개인정보 및 동의</li>
+              <li><strong>02</strong> 원본 영상 URL</li>
+              <li><strong>03</strong> 신청자 정보 및 동의</li>
             </ol>
           </aside>
 
           <form class="submission-form" data-submit-form>
+            <section class="member-panel" data-member-panel>
+              <div data-auth-guest>
+                <div class="form-part">회원가입 / 로그인</div>
+                <p class="help strong-help">출품 신청은 이메일 인증 회원만 가능합니다.</p>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="memberEmail">회원 이메일</label>
+                    <input id="memberEmail" type="email" autocomplete="email">
+                  </div>
+                  <div class="field">
+                    <label for="memberPassword">비밀번호</label>
+                    <input id="memberPassword" type="password" autocomplete="current-password" minlength="8">
+                  </div>
+                </div>
+                <div class="member-actions">
+                  <button class="btn cyan" type="button" data-sign-up>회원가입</button>
+                  <button class="btn black" type="button" data-sign-in>로그인</button>
+                </div>
+              </div>
+              <div class="member-session" data-auth-member hidden>
+                <strong>로그인 완료</strong>
+                <span data-member-email></span>
+                <button class="ghost-member-button" type="button" data-sign-out>로그아웃</button>
+              </div>
+              <p class="form-error" data-auth-message></p>
+            </section>
+
+            <fieldset class="submission-fields" data-submission-fields disabled>
             <div class="form-part">01 / 작품 정보</div>
             <div class="form-grid">
               <div class="field hp-field" aria-hidden="true">
@@ -513,22 +541,14 @@
               </div>
             </div>
 
-            <div class="form-part">02 / SNS URL</div>
+            <div class="form-part">02 / 원본 영상 URL</div>
             <div class="url-grid">
-              <div class="field">
-                <label for="youtubeUrl">유튜브 URL</label>
-                <input id="youtubeUrl" name="youtubeUrl" type="url" placeholder="https://youtube.com/...">
-              </div>
-              <div class="field">
-                <label for="instagramUrl">인스타그램 URL</label>
-                <input id="instagramUrl" name="instagramUrl" type="url" placeholder="https://instagram.com/...">
-              </div>
-              <div class="field">
-                <label for="tiktokUrl">틱톡 URL</label>
-                <input id="tiktokUrl" name="tiktokUrl" type="url" placeholder="https://tiktok.com/...">
+              <div class="field full">
+                <label for="youtubeUrl">원본 영상 유튜브 URL</label>
+                <input id="youtubeUrl" name="youtubeUrl" type="url" placeholder="https://youtu.be/..." required>
               </div>
             </div>
-            <p class="help strong-help">세 플랫폼 중 최소 1개 URL은 필수입니다. 제출 URL은 공개 게시물이어야 합니다.</p>
+            <p class="help strong-help">원본 영상을 유튜브 ‘일부 공개’로 설정한 URL만 제출하세요. ‘비공개’ 영상은 심사할 수 없습니다.</p>
 
             <div class="form-part">03 / 개인정보 및 동의</div>
             <div class="form-grid">
@@ -563,6 +583,7 @@
               <strong>접수완료</strong>
               <p>접수번호 <span data-receipt-id></span>가 생성되었습니다. <span data-success-message></span></p>
             </div>
+            </fieldset>
           </form>
         </div>
       </section>
@@ -578,7 +599,8 @@
       </div>
     </footer>
 
-    <script src="assets/config.js?v=20260519-cinema"></script>
-    <script src="assets/app.js?v=20260728-entry-divisions"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.min.js"></script>
+    <script src="assets/config.js?v=20260728-member-auth"></script>
+    <script src="assets/app.js?v=20260728-member-auth"></script>
   </body>
 </html>

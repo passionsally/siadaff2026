@@ -10,8 +10,21 @@ const ageGroupSelect = document.querySelector("#ageGroup");
 const productionTypeSelect = document.querySelector("#productionType");
 const businessNumberField = document.querySelector("#businessNumberField");
 const businessNumberInput = document.querySelector("#businessRegistrationNumber");
+const submissionFields = document.querySelector("[data-submission-fields]");
+const authGuest = document.querySelector("[data-auth-guest]");
+const authMember = document.querySelector("[data-auth-member]");
+const authMessage = document.querySelector("[data-auth-message]");
+const memberEmailInput = document.querySelector("#memberEmail");
+const memberPasswordInput = document.querySelector("#memberPassword");
+const memberEmailTarget = document.querySelector("[data-member-email]");
+const applicantEmailInput = document.querySelector("#email");
 
 const config = window.SIADAFF_CONFIG || {};
+const supabaseClient = window.supabase?.createClient(
+  config.supabaseUrl,
+  config.supabasePublishableKey
+);
+let currentSession = null;
 
 const categoryNames = {
   "Brand Poster": "포스터",
@@ -53,12 +66,48 @@ function normalizeBusinessNumber() {
     );
 }
 
-function hasOneSnsUrl(data) {
-  return Boolean(
-    data.get("youtubeUrl")?.trim() ||
-    data.get("instagramUrl")?.trim() ||
-    data.get("tiktokUrl")?.trim()
-  );
+function showAuthMessage(message, isError = true) {
+  authMessage.textContent = message || "";
+  authMessage.classList.toggle("is-visible", Boolean(message));
+  authMessage.style.color = isError ? "#b42318" : "#087f5b";
+}
+
+function renderSession(session) {
+  currentSession = session;
+  const email = session?.user?.email || "";
+  const isSignedIn = Boolean(session?.access_token && email);
+  authGuest.hidden = isSignedIn;
+  authMember.hidden = !isSignedIn;
+  submissionFields.disabled = !isSignedIn;
+  memberEmailTarget.textContent = email;
+  applicantEmailInput.value = email;
+  applicantEmailInput.readOnly = isSignedIn;
+}
+
+async function signUp() {
+  showAuthMessage("");
+  const email = memberEmailInput.value.trim();
+  const password = memberPasswordInput.value;
+  if (!email || password.length < 8) return showAuthMessage("이메일과 8자 이상의 비밀번호를 입력해 주세요.");
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password,
+    options: { emailRedirectTo: `${location.origin}/#submit` }
+  });
+  if (error) return showAuthMessage(error.message);
+  renderSession(data.session);
+  showAuthMessage(data.session ? "회원가입과 로그인이 완료되었습니다." : "인증 이메일을 보냈습니다. 이메일 인증 후 로그인해 주세요.", false);
+}
+
+async function signIn() {
+  showAuthMessage("");
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email: memberEmailInput.value.trim(),
+    password: memberPasswordInput.value
+  });
+  if (error) return showAuthMessage("로그인 정보를 확인해 주세요.");
+  renderSession(data.session);
+  showAuthMessage("로그인되었습니다.", false);
 }
 
 function showError(message) {
@@ -101,6 +150,14 @@ function initReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
+document.querySelector("[data-sign-up]").addEventListener("click", signUp);
+document.querySelector("[data-sign-in]").addEventListener("click", signIn);
+document.querySelector("[data-sign-out]").addEventListener("click", async () => {
+  await supabaseClient.auth.signOut();
+  renderSession(null);
+});
+supabaseClient.auth.getSession().then(({ data }) => renderSession(data.session));
+supabaseClient.auth.onAuthStateChange((_event, session) => renderSession(session));
 categorySelect.addEventListener("change", syncTitle);
 ageGroupSelect.addEventListener("change", syncApplicantType);
 businessNumberInput.addEventListener("input", normalizeBusinessNumber);
@@ -114,8 +171,8 @@ form.addEventListener("submit", async (event) => {
 
   const data = new FormData(form);
 
-  if (!hasOneSnsUrl(data)) {
-    showError("유튜브, 인스타그램, 틱톡 URL 중 최소 1개를 입력해 주세요.");
+  if (!currentSession?.access_token) {
+    showError("회원가입 후 로그인해야 출품할 수 있습니다.");
     return;
   }
 
@@ -135,7 +192,9 @@ form.addEventListener("submit", async (event) => {
     const response = await fetch(config.submitEndpoint, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${currentSession.access_token}`,
+        "apikey": config.supabasePublishableKey
       },
       body: JSON.stringify(buildPayload(data))
     });
@@ -151,6 +210,7 @@ form.addEventListener("submit", async (event) => {
     successPanel.classList.add("is-visible");
     successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
     form.reset();
+    renderSession(currentSession);
     syncTitle();
     syncApplicantType();
   } catch (error) {
