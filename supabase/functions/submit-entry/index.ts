@@ -6,8 +6,8 @@ const corsHeaders = {
 };
 
 const categories = new Set(["Brand Poster", "Ad Film", "Short-form Drama", "Short Film"]);
-const ageGroups = new Set(["청소년부", "청년부", "중장년부", "시니어부"]);
-const productionTypes = new Set(["개인출품", "회사출품"]);
+const ageGroups = new Set(["청소년부", "성인부", "단체출품"]);
+const productionTypes = new Set(["개인출품", "단체출품"]);
 const aiUseValues = new Set(["활용함", "활용하지 않음"]);
 
 type Payload = Record<string, unknown>;
@@ -111,8 +111,11 @@ function validate(payload: Payload) {
   if (!categories.has(category)) return "출품 부문 값이 올바르지 않습니다.";
   if (!ageGroups.has(ageGroup)) return "연령 부문 값이 올바르지 않습니다.";
   if (!productionTypes.has(productionType)) return "제작 형태 값이 올바르지 않습니다.";
-  if (productionType === "회사출품" && !/^\d{10}$/.test(businessRegistrationNumber)) {
-    return "회사출품은 10자리 사업자등록번호를 입력해 주세요.";
+  if ((ageGroup === "단체출품") !== (productionType === "단체출품")) {
+    return "출품 구분 값이 서로 일치하지 않습니다.";
+  }
+  if (productionType === "단체출품" && !/^\d{10}$/.test(businessRegistrationNumber)) {
+    return "단체출품은 10자리 사업자등록번호를 입력해 주세요.";
   }
   if (productionType === "개인출품" && businessRegistrationNumber) {
     return "개인출품에는 사업자등록번호를 입력하지 않습니다.";
@@ -226,7 +229,7 @@ Deno.serve(async (request) => {
     title_en: asString(payload, "titleEn"),
     age_group: asString(payload, "ageGroup"),
     production_type: asString(payload, "productionType"),
-    business_registration_number: asString(payload, "productionType") === "회사출품"
+    business_registration_number: asString(payload, "productionType") === "단체출품"
       ? asString(payload, "businessRegistrationNumber").replace(/\D/g, "")
       : null,
     runtime_or_size: asString(payload, "runtime"),
