@@ -5,9 +5,9 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-const categories = new Set(["Brand Poster", "Ad Film", "Short-form Drama"]);
+const categories = new Set(["Brand Poster", "Ad Film", "Short-form Drama", "Short Film"]);
 const ageGroups = new Set(["청소년부", "청년부", "중장년부", "시니어부"]);
-const productionTypes = new Set(["개인", "팀"]);
+const productionTypes = new Set(["개인출품", "회사출품"]);
 const aiUseValues = new Set(["활용함", "활용하지 않음"]);
 
 type Payload = Record<string, unknown>;
@@ -76,6 +76,7 @@ function validate(payload: Payload) {
   const titleEn = asString(payload, "titleEn");
   const ageGroup = asString(payload, "ageGroup");
   const productionType = asString(payload, "productionType");
+  const businessRegistrationNumber = asString(payload, "businessRegistrationNumber").replace(/\D/g, "");
   const runtime = asString(payload, "runtime");
   const aiUse = asString(payload, "aiUse");
   const synopsisKo = asString(payload, "synopsisKo");
@@ -110,6 +111,12 @@ function validate(payload: Payload) {
   if (!categories.has(category)) return "출품 부문 값이 올바르지 않습니다.";
   if (!ageGroups.has(ageGroup)) return "연령 부문 값이 올바르지 않습니다.";
   if (!productionTypes.has(productionType)) return "제작 형태 값이 올바르지 않습니다.";
+  if (productionType === "회사출품" && !/^\d{10}$/.test(businessRegistrationNumber)) {
+    return "회사출품은 10자리 사업자등록번호를 입력해 주세요.";
+  }
+  if (productionType === "개인출품" && businessRegistrationNumber) {
+    return "개인출품에는 사업자등록번호를 입력하지 않습니다.";
+  }
   if (!aiUseValues.has(aiUse)) return "AI 활용 여부 값이 올바르지 않습니다.";
 
   if (synopsisKo.length > 1200 || synopsisEn.length > 1200) {
@@ -219,6 +226,9 @@ Deno.serve(async (request) => {
     title_en: asString(payload, "titleEn"),
     age_group: asString(payload, "ageGroup"),
     production_type: asString(payload, "productionType"),
+    business_registration_number: asString(payload, "productionType") === "회사출품"
+      ? asString(payload, "businessRegistrationNumber").replace(/\D/g, "")
+      : null,
     runtime_or_size: asString(payload, "runtime"),
     ai_used: asString(payload, "aiUse") === "활용함",
     ai_description: asString(payload, "aiMemo") || null,

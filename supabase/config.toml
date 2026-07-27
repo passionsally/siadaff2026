@@ -8,3 +8,9 @@ verify_jwt = false
 
 [functions.admin-data]
 verify_jwt = false
+
+[functions.create-earlybird-order]
+verify_jwt = false
+
+[functions.confirm-earlybird-payment]
+verify_jwt = false
