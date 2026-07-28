@@ -259,6 +259,15 @@ td strong {
   line-height: 1.45;
 }
 
+.file-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #087f89;
+  font-size: 12px;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
 .status-pill {
   display: inline-flex;
   min-height: 28px;

@@ -7,6 +7,7 @@ const corsHeaders = {
 
 const submissionStatuses = new Set(["접수완료", "검토중", "수상확정", "내년에 재도전 응원해요"]);
 const sponsorStatuses = new Set(["문의접수", "검토중", "연락완료", "후원확정", "보류"]);
+const businessFileBucket = "business-registrations";
 
 function json(body: unknown, status = 200, origin = "*") {
   return new Response(JSON.stringify(body), {
@@ -47,11 +48,28 @@ function asString(value: unknown) {
 }
 
 function submissionFields() {
-  return "receipt_no,category,title_ko,title_en,work_title,age_group,production_type,business_registration_number,runtime_or_size,ai_used,ai_description,synopsis_ko,synopsis_en,synopsis,youtube_url,instagram_url,tiktok_url,name,phone,email,status,admin_memo,created_at,updated_at";
+  return "receipt_no,category,title_ko,title_en,work_title,age_group,production_type,business_registration_number,business_registration_file_path,runtime_or_size,ai_used,ai_description,synopsis_ko,synopsis_en,synopsis,youtube_url,instagram_url,tiktok_url,name,phone,email,status,admin_memo,created_at,updated_at";
 }
 
 function sponsorFields() {
   return "inquiry_no,organization_name,organization_type,contact_name,position_title,phone,email,interest_type,budget_range,message,marketing_consent,status,admin_memo,created_at,updated_at";
+}
+
+async function withBusinessFileUrl(
+  supabase: ReturnType<typeof createClient>,
+  submission: Record<string, unknown>,
+) {
+  const path = asString(submission.business_registration_file_path);
+  if (!path) return { ...submission, business_registration_file_url: null };
+
+  const { data, error } = await supabase.storage
+    .from(businessFileBucket)
+    .createSignedUrl(path, 60 * 60);
+
+  return {
+    ...submission,
+    business_registration_file_url: error ? null : data.signedUrl,
+  };
 }
 
 Deno.serve(async (request) => {
@@ -134,7 +152,7 @@ Deno.serve(async (request) => {
         return json({ error: "출품 접수 관리 정보를 저장하지 못했습니다." }, 500, origin);
       }
 
-      return json({ submission: data }, 200, origin);
+      return json({ submission: await withBusinessFileUrl(supabase, data) }, 200, origin);
     }
 
     if (type === "sponsor") {
@@ -180,13 +198,19 @@ Deno.serve(async (request) => {
     return json({ error: "후원 문의 데이터를 불러오지 못했습니다." }, 500, origin);
   }
 
+  const submissions = await Promise.all(
+    (submissionsResult.data || []).map((submission) =>
+      withBusinessFileUrl(supabase, submission)
+    ),
+  );
+
   return json(
     {
       generatedAt: new Date().toISOString(),
-      submissions: submissionsResult.data || [],
+      submissions,
       sponsorInquiries: sponsorResult.data || [],
       counts: {
-        submissions: submissionsResult.data?.length || 0,
+        submissions: submissions.length,
         sponsorInquiries: sponsorResult.data?.length || 0,
       },
     },

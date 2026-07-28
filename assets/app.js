@@ -12,6 +12,8 @@ const ageGroupSelect = document.querySelector("#ageGroup");
 const productionTypeSelect = document.querySelector("#productionType");
 const businessNumberField = document.querySelector("#businessNumberField");
 const businessNumberInput = document.querySelector("#businessRegistrationNumber");
+const businessFileField = document.querySelector("#businessFileField");
+const businessFileInput = document.querySelector("#businessRegistrationFile");
 const submissionFields = document.querySelector("[data-submission-fields]");
 const authGuest = document.querySelector("[data-auth-guest]");
 const authMember = document.querySelector("[data-auth-member]");
@@ -35,14 +37,6 @@ const categoryNames = {
   "Short Film": "3분 단편영화"
 };
 
-const consentFields = [
-  "rulesConsent",
-  "rightsConsent",
-  "privacyConsent",
-  "promotionConsent",
-  "teamParticipationConsent"
-];
-
 function syncTitleFromCategory() {
   const label = categoryNames[categorySelect.value];
   titleSelect.value = label ? `SIADAFF 1회 ${label} 부문 출품작` : "";
@@ -61,8 +55,13 @@ function syncApplicantType() {
     ? (isGroup ? "단체출품" : "개인출품")
     : "";
   businessNumberField.hidden = !isGroup;
+  businessFileField.hidden = !isGroup;
   businessNumberInput.required = isGroup;
-  if (!isGroup) businessNumberInput.value = "";
+  businessFileInput.required = isGroup;
+  if (!isGroup) {
+    businessNumberInput.value = "";
+    businessFileInput.value = "";
+  }
 }
 
 function normalizeBusinessNumber() {
@@ -72,6 +71,26 @@ function normalizeBusinessNumber() {
     .replace(/^(\d{3})(\d{0,2})(\d{0,5}).*$/, (_, a, b, c) =>
       [a, b, c].filter(Boolean).join("-")
     );
+}
+
+function validateBusinessFile() {
+  const isGroup = ageGroupSelect.value === "단체출품";
+  const file = businessFileInput.files?.[0];
+
+  if (!isGroup) return "";
+  if (!file) return "단체출품은 사업자등록증 파일을 첨부해 주세요.";
+
+  const allowedTypes = new Set(["application/pdf", "image/jpeg", "image/png"]);
+  const extension = file.name.split(".").pop()?.toLowerCase();
+  if (!allowedTypes.has(file.type) || !["pdf", "jpg", "jpeg", "png"].includes(extension || "")) {
+    return "사업자등록증은 PDF, JPG, PNG 파일만 첨부할 수 있습니다.";
+  }
+
+  if (file.size > 10 * 1024 * 1024) {
+    return "사업자등록증 파일은 10MB 이하로 첨부해 주세요.";
+  }
+
+  return "";
 }
 
 function showAuthMessage(message, isError = true) {
@@ -127,16 +146,6 @@ function resetMessages() {
   errorBox.classList.remove("is-visible");
   successPanel.classList.remove("is-visible");
   errorBox.textContent = "";
-}
-
-function buildPayload(data) {
-  const payload = Object.fromEntries(data.entries());
-
-  for (const field of consentFields) {
-    payload[field] = data.has(field);
-  }
-
-  return payload;
 }
 
 function setSubmitting(isSubmitting) {
@@ -195,6 +204,13 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
+  const businessFileError = validateBusinessFile();
+  if (businessFileError) {
+    showError(businessFileError);
+    businessFileInput.focus();
+    return;
+  }
+
   if (!config.submitEndpoint) {
     showError("접수 저장 API 주소가 아직 설정되지 않았습니다. assets/config.js에 Supabase Function URL을 입력해 주세요.");
     return;
@@ -206,11 +222,10 @@ form.addEventListener("submit", async (event) => {
     const response = await fetch(config.submitEndpoint, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "Authorization": `Bearer ${currentSession.access_token}`,
         "apikey": config.supabasePublishableKey
       },
-      body: JSON.stringify(buildPayload(data))
+      body: data
     });
 
     const result = await response.json().catch(() => ({}));
