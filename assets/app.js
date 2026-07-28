@@ -25,6 +25,8 @@ const applicantEmailInput = document.querySelector("#email");
 const authModal = document.querySelector("[data-auth-modal]");
 const authModalTitle = document.querySelector("[data-auth-modal-title]");
 const submissionDeadline = Date.parse("2026-10-21T00:00:00+09:00");
+const pageContext = document.querySelector("[data-page-context]");
+const pageContextLabel = document.querySelector("[data-page-context-label]");
 
 const config = window.SIADAFF_CONFIG || {};
 const supabaseClient = createClient(
@@ -116,6 +118,17 @@ function closeAuthModal() {
 
 function isSubmissionClosed() {
   return Date.now() >= submissionDeadline;
+}
+
+function updatePageContext() {
+  const labels = {
+    "#guideline": "가이드라인",
+    "#rules": "가이드라인",
+    "#submit": "작품출품하기"
+  };
+  const label = labels[location.hash];
+  pageContext.hidden = !label;
+  pageContextLabel.textContent = label || "";
 }
 
 function renderSession(session) {
@@ -215,6 +228,8 @@ document.querySelectorAll('a[href="#submit"], a[href="/earlybird/"]').forEach((l
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !authModal.hidden) closeAuthModal();
 });
+window.addEventListener("hashchange", updatePageContext);
+updatePageContext();
 document.querySelector("[data-sign-out]").addEventListener("click", async () => {
   await supabaseClient.auth.signOut();
   renderSession(null);
