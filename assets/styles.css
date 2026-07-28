@@ -924,6 +924,16 @@ textarea {
   line-height: 1.72;
 }
 
+.submit-intro .submission-open-notice {
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: var(--black);
+  background: var(--cyan);
+  font-size: 17px;
+  font-weight: 950;
+  line-height: 1.45;
+}
+
 .submit-intro ol {
   display: grid;
   gap: 9px;
