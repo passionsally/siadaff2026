@@ -3,6 +3,7 @@ const form = document.querySelector("#order-form");
 const button = document.querySelector("#pay-button");
 const errorBox = document.querySelector("#error");
 const amount = { currency: "KRW", value: 29900 };
+const submissionDeadline = Date.parse("2026-10-21T00:00:00+09:00");
 function error(message) { errorBox.textContent = message || ""; }
 async function start() {
   if (!cfg.tossClientKey || cfg.tossClientKey.includes("REPLACE")) {
@@ -20,6 +21,10 @@ async function start() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     error("");
+    if (Date.now() >= submissionDeadline) {
+      window.alert("접수마감입니다. 내년에 도전하세요.");
+      return;
+    }
     if (!form.checkValidity()) return form.reportValidity();
     if (!cfg.earlybirdCreateOrderEndpoint) return error("주문 생성 API가 설정되지 않았습니다.");
     button.disabled = true;

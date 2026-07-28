@@ -182,6 +182,7 @@ function makeReceiptNo() {
 
 Deno.serve(async (request) => {
   const origin = getOrigin(request);
+  const submissionDeadline = Date.parse("2026-10-21T00:00:00+09:00");
 
   if (!origin) {
     return json({ error: "허용되지 않은 요청 출처입니다." }, 403, "null");
@@ -198,6 +199,10 @@ Deno.serve(async (request) => {
 
   if (request.method !== "POST") {
     return json({ error: "POST 요청만 허용합니다." }, 405, origin);
+  }
+
+  if (Date.now() >= submissionDeadline) {
+    return json({ error: "접수마감입니다. 내년에 도전하세요." }, 410, origin);
   }
 
   let payload: Payload;

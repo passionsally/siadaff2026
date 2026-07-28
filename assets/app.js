@@ -24,6 +24,7 @@ const memberEmailTarget = document.querySelector("[data-member-email]");
 const applicantEmailInput = document.querySelector("#email");
 const authModal = document.querySelector("[data-auth-modal]");
 const authModalTitle = document.querySelector("[data-auth-modal-title]");
+const submissionDeadline = Date.parse("2026-10-21T00:00:00+09:00");
 
 const config = window.SIADAFF_CONFIG || {};
 const supabaseClient = createClient(
@@ -113,6 +114,10 @@ function closeAuthModal() {
   document.body.classList.remove("modal-open");
 }
 
+function isSubmissionClosed() {
+  return Date.now() >= submissionDeadline;
+}
+
 function renderSession(session) {
   currentSession = session;
   const email = session?.user?.email || "";
@@ -199,6 +204,13 @@ document.querySelectorAll("[data-auth-open]").forEach((trigger) => {
 });
 document.querySelectorAll("[data-auth-close]").forEach((trigger) => {
   trigger.addEventListener("click", closeAuthModal);
+});
+document.querySelectorAll('a[href="#submit"], a[href="/earlybird/"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!isSubmissionClosed()) return;
+    event.preventDefault();
+    window.alert("접수마감입니다. 내년에 도전하세요.");
+  });
 });
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !authModal.hidden) closeAuthModal();
