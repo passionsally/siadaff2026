@@ -355,6 +355,15 @@ textarea {
   font-weight: 850;
 }
 
+.impact-grid .earlybird-benefit-note {
+  display: inline-block;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, .58);
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
 .partner-area {
   width: min(1180px, 100%);
   margin: 76px auto 0;
