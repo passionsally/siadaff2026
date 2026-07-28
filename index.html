@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="포스터, 39초 광고영상, 59초 숏폼드라마, 3분 단편영화 크리에이티브">
     <meta name="twitter:image" content="https://www.siadaff.com/assets/siadaff-39prime-preview.png">
     <link rel="icon" href="assets/favicon.png">
-    <link rel="stylesheet" href="assets/styles.css?v=20260728-earlybird-price">
+    <link rel="stylesheet" href="assets/styles.css?v=20260728-header-auth-links">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -63,6 +63,8 @@
           <a href="#reward">Reward</a>
           <a href="#archive">Archive</a>
           <a href="/sponsor/">Sponsor</a>
+          <a class="auth-link login-link" href="#member-auth" data-auth-scroll>로그인</a>
+          <a class="auth-link signup-link" href="#member-auth" data-auth-scroll>회원가입</a>
           <a class="submit-link" href="#submit">접수하기</a>
         </div>
       </nav>
@@ -429,7 +431,7 @@
           </aside>
 
           <form class="submission-form" data-submit-form>
-            <section class="member-panel" data-member-panel>
+            <section class="member-panel" id="member-auth" data-member-panel>
               <div data-auth-guest>
                 <div class="form-part">회원가입 / 로그인</div>
                 <div class="form-grid">
@@ -605,6 +607,6 @@
     </footer>
 
     <script src="assets/config.js?v=20260728-member-auth"></script>
-    <script type="module" src="assets/app.js?v=20260728-entry-title-options"></script>
+    <script type="module" src="assets/app.js?v=20260728-header-auth-links"></script>
   </body>
 </html>

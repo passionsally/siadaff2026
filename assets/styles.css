@@ -104,6 +104,30 @@ textarea {
   color: var(--cyan);
 }
 
+.auth-link {
+  padding: 8px 13px;
+  border-radius: 999px;
+}
+
+.login-link {
+  border: 1px solid rgba(255, 255, 255, .42);
+  color: var(--white);
+}
+
+.signup-link {
+  color: var(--black);
+  background: var(--cyan);
+}
+
+.nav-menu .signup-link:hover {
+  color: var(--black);
+  background: var(--white);
+}
+
+.member-panel {
+  scroll-margin-top: 96px;
+}
+
 .hero-section {
   color: var(--white);
   background: var(--black);
