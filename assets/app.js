@@ -160,6 +160,11 @@ function initReveal() {
 
 document.querySelector("[data-sign-up]").addEventListener("click", signUp);
 document.querySelector("[data-sign-in]").addEventListener("click", signIn);
+document.querySelectorAll("[data-auth-scroll]").forEach((link) => {
+  link.addEventListener("click", () => {
+    window.setTimeout(() => memberEmailInput.focus(), 350);
+  });
+});
 document.querySelector("[data-sign-out]").addEventListener("click", async () => {
   await supabaseClient.auth.signOut();
   renderSession(null);
