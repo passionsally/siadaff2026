@@ -119,7 +119,9 @@ async function signUp() {
   const { data, error } = await supabaseClient.auth.signUp({
     email,
     password,
-    options: { emailRedirectTo: `${location.origin}/#submit` }
+    options: {
+      emailRedirectTo: config.authRedirectUrl || `${location.origin}/`
+    }
   });
   if (error) return showAuthMessage(error.message);
   renderSession(data.session);

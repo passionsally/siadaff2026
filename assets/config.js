@@ -1,6 +1,7 @@
 window.SIADAFF_CONFIG = {
   supabaseUrl: "https://mauhctyjkwkcudcteexf.supabase.co",
   supabasePublishableKey: "sb_publishable_vYXTNIt-Sw602bkCKIHgPA_K2mNwtzH",
+  authRedirectUrl: "https://www.siadaff.com/",
   submitEndpoint: "https://mauhctyjkwkcudcteexf.supabase.co/functions/v1/submit-entry",
   sponsorInquiryEndpoint: "https://mauhctyjkwkcudcteexf.supabase.co/functions/v1/submit-sponsor-inquiry",
   adminDataEndpoint: "https://mauhctyjkwkcudcteexf.supabase.co/functions/v1/admin-data",
