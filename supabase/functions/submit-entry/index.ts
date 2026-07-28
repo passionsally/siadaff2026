@@ -9,6 +9,13 @@ const categories = new Set(["Brand Poster", "Ad Film", "Short-form Drama", "Shor
 const ageGroups = new Set(["청소년부", "성인부", "단체출품"]);
 const productionTypes = new Set(["개인출품", "단체출품"]);
 const aiUseValues = new Set(["활용함", "활용하지 않음"]);
+const businessFileTypes = new Map([
+  ["application/pdf", "pdf"],
+  ["image/jpeg", "jpg"],
+  ["image/png", "png"],
+]);
+const businessFileMaxBytes = 10 * 1024 * 1024;
+const businessFileBucket = "business-registrations";
 
 type Payload = Record<string, unknown>;
 
@@ -68,7 +75,7 @@ function hostMatches(value: string, hosts: string[]) {
   }
 }
 
-function validate(payload: Payload) {
+function validate(payload: Payload, businessFile: File | null) {
   const category = asString(payload, "category");
   const entryTitle = asString(payload, "entryTitle");
   const workTitle = asString(payload, "workTitle");
@@ -117,6 +124,22 @@ function validate(payload: Payload) {
   }
   if (productionType === "개인출품" && businessRegistrationNumber) {
     return "개인출품에는 사업자등록번호를 입력하지 않습니다.";
+  }
+  if (productionType === "단체출품" && !businessFile) {
+    return "단체출품은 사업자등록증 파일을 첨부해 주세요.";
+  }
+  if (productionType === "개인출품" && businessFile) {
+    return "개인출품에는 사업자등록증 파일을 첨부하지 않습니다.";
+  }
+  if (businessFile) {
+    const extension = businessFile.name.split(".").pop()?.toLowerCase() || "";
+    const allowedExtension = ["pdf", "jpg", "jpeg", "png"].includes(extension);
+    if (!businessFileTypes.has(businessFile.type) || !allowedExtension) {
+      return "사업자등록증은 PDF, JPG, PNG 파일만 첨부할 수 있습니다.";
+    }
+    if (businessFile.size > businessFileMaxBytes) {
+      return "사업자등록증 파일은 10MB 이하로 첨부해 주세요.";
+    }
   }
   if (!aiUseValues.has(aiUse)) return "AI 활용 여부 값이 올바르지 않습니다.";
 
@@ -178,8 +201,17 @@ Deno.serve(async (request) => {
   }
 
   let payload: Payload;
+  let businessFile: File | null = null;
   try {
-    payload = await request.json();
+    const contentType = request.headers.get("content-type") || "";
+    if (contentType.includes("multipart/form-data")) {
+      const formData = await request.formData();
+      const fileValue = formData.get("businessRegistrationFile");
+      businessFile = fileValue instanceof File && fileValue.size > 0 ? fileValue : null;
+      payload = Object.fromEntries(formData.entries());
+    } else {
+      payload = await request.json();
+    }
   } catch {
     return json({ error: "요청 본문을 읽을 수 없습니다." }, 400, origin);
   }
@@ -188,7 +220,7 @@ Deno.serve(async (request) => {
     return json({ receiptNo: makeReceiptNo(), status: "접수완료" }, 200, origin);
   }
 
-  const validationError = validate(payload);
+  const validationError = validate(payload, businessFile);
   if (validationError) {
     return json({ error: validationError }, 400, origin);
   }
@@ -216,6 +248,22 @@ Deno.serve(async (request) => {
     return json({ error: "로그인 이메일과 신청 이메일이 일치해야 합니다." }, 400, origin);
   }
 
+  let businessFilePath: string | null = null;
+  if (asString(payload, "productionType") === "단체출품" && businessFile) {
+    const extension = businessFileTypes.get(businessFile.type);
+    businessFilePath = `${authData.user.id}/${crypto.randomUUID()}.${extension}`;
+    const { error: uploadError } = await supabase.storage
+      .from(businessFileBucket)
+      .upload(businessFilePath, await businessFile.arrayBuffer(), {
+        contentType: businessFile.type,
+        upsert: false,
+      });
+
+    if (uploadError) {
+      return json({ error: "사업자등록증 파일을 저장하지 못했습니다." }, 500, origin);
+    }
+  }
+
   const row = {
     user_id: authData.user.id,
     category: asString(payload, "category"),
@@ -228,6 +276,7 @@ Deno.serve(async (request) => {
     business_registration_number: asString(payload, "productionType") === "단체출품"
       ? asString(payload, "businessRegistrationNumber").replace(/\D/g, "")
       : null,
+    business_registration_file_path: businessFilePath,
     runtime_or_size: asString(payload, "runtime"),
     ai_used: asString(payload, "aiUse") === "활용함",
     ai_description: asString(payload, "aiMemo") || null,
@@ -261,9 +310,15 @@ Deno.serve(async (request) => {
     }
 
     if (error?.code !== "23505") {
+      if (businessFilePath) {
+        await supabase.storage.from(businessFileBucket).remove([businessFilePath]);
+      }
       return json({ error: "접수 저장 중 오류가 발생했습니다." }, 500, origin);
     }
   }
 
+  if (businessFilePath) {
+    await supabase.storage.from(businessFileBucket).remove([businessFilePath]);
+  }
   return json({ error: "접수번호 생성 중 오류가 발생했습니다." }, 500, origin);
 });

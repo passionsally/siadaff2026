@@ -518,6 +518,12 @@
                 <span class="help" id="businessNumberHelp">단체출품 선택 시 필수 입력</span>
               </div>
 
+              <div class="field" id="businessFileField" hidden>
+                <label for="businessRegistrationFile">사업자등록증 파일</label>
+                <input id="businessRegistrationFile" name="businessRegistrationFile" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" aria-describedby="businessFileHelp">
+                <span class="help" id="businessFileHelp">단체출품 필수 · PDF, JPG, PNG · 최대 10MB</span>
+              </div>
+
               <div class="field">
                 <label for="aiUse">AI 활용 여부</label>
                 <select id="aiUse" name="aiUse" required>
@@ -607,6 +613,6 @@
     </footer>
 
     <script src="assets/config.js?v=20260728-member-auth"></script>
-    <script type="module" src="assets/app.js?v=20260728-header-auth-links"></script>
+    <script type="module" src="assets/app.js?v=20260728-business-file-upload"></script>
   </body>
 </html>
