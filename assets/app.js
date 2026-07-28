@@ -22,6 +22,8 @@ const memberEmailInput = document.querySelector("#memberEmail");
 const memberPasswordInput = document.querySelector("#memberPassword");
 const memberEmailTarget = document.querySelector("[data-member-email]");
 const applicantEmailInput = document.querySelector("#email");
+const authModal = document.querySelector("[data-auth-modal]");
+const authModalTitle = document.querySelector("[data-auth-modal-title]");
 
 const config = window.SIADAFF_CONFIG || {};
 const supabaseClient = createClient(
@@ -99,6 +101,18 @@ function showAuthMessage(message, isError = true) {
   authMessage.style.color = isError ? "#b42318" : "#087f5b";
 }
 
+function openAuthModal(mode = "login") {
+  authModal.hidden = false;
+  document.body.classList.add("modal-open");
+  authModalTitle.textContent = mode === "signup" ? "회원가입" : "로그인";
+  window.setTimeout(() => memberEmailInput.focus(), 50);
+}
+
+function closeAuthModal() {
+  authModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
 function renderSession(session) {
   currentSession = session;
   const email = session?.user?.email || "";
@@ -125,7 +139,12 @@ async function signUp() {
   });
   if (error) return showAuthMessage(error.message);
   renderSession(data.session);
-  showAuthMessage(data.session ? "회원가입과 로그인이 완료되었습니다." : "인증 이메일을 보냈습니다. 이메일 인증 후 로그인해 주세요.", false);
+  showAuthMessage(
+    data.session
+      ? "회원가입과 로그인이 완료되었습니다. 작품은 원하실 때 출품하시면 됩니다."
+      : "인증 이메일을 보냈습니다. 이메일 인증만 먼저 완료해 주세요. 지금 바로 출품하지 않아도 됩니다.",
+    false
+  );
 }
 
 async function signIn() {
@@ -137,6 +156,7 @@ async function signIn() {
   if (error) return showAuthMessage("로그인 정보를 확인해 주세요.");
   renderSession(data.session);
   showAuthMessage("로그인되었습니다.", false);
+  closeAuthModal();
 }
 
 function showError(message) {
@@ -171,10 +191,17 @@ function initReveal() {
 
 document.querySelector("[data-sign-up]").addEventListener("click", signUp);
 document.querySelector("[data-sign-in]").addEventListener("click", signIn);
-document.querySelectorAll("[data-auth-scroll]").forEach((link) => {
-  link.addEventListener("click", () => {
-    window.setTimeout(() => memberEmailInput.focus(), 350);
+document.querySelectorAll("[data-auth-open]").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    openAuthModal(trigger.dataset.authOpen);
   });
+});
+document.querySelectorAll("[data-auth-close]").forEach((trigger) => {
+  trigger.addEventListener("click", closeAuthModal);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !authModal.hidden) closeAuthModal();
 });
 document.querySelector("[data-sign-out]").addEventListener("click", async () => {
   await supabaseClient.auth.signOut();

@@ -63,8 +63,8 @@
           <a href="#reward">Reward</a>
           <a href="#archive">Archive</a>
           <a href="/sponsor/">Sponsor</a>
-          <a class="auth-link login-link" href="#member-auth" data-auth-scroll>로그인</a>
-          <a class="auth-link signup-link" href="#member-auth" data-auth-scroll>회원가입</a>
+          <a class="auth-link login-link" href="#login" data-auth-open="login">로그인</a>
+          <a class="auth-link signup-link" href="#signup" data-auth-open="signup">회원가입</a>
           <a class="submit-link" href="#submit">작품출품하기</a>
         </div>
       </nav>
@@ -432,28 +432,16 @@
           <form class="submission-form" data-submit-form>
             <section class="member-panel" id="member-auth" data-member-panel>
               <div data-auth-guest>
-                <div class="form-part">회원가입 / 로그인</div>
-                <div class="form-grid">
-                  <div class="field">
-                    <label for="memberEmail">회원 이메일</label>
-                    <input id="memberEmail" type="email" autocomplete="email">
-                  </div>
-                  <div class="field">
-                    <label for="memberPassword">비밀번호</label>
-                    <input id="memberPassword" type="password" autocomplete="current-password" minlength="8">
-                  </div>
-                </div>
-                <div class="member-actions">
-                  <button class="btn cyan" type="button" data-sign-up>회원가입</button>
-                  <button class="btn black" type="button" data-sign-in>로그인</button>
-                </div>
+                <div class="form-part">출품자 로그인</div>
+                <strong>작품을 출품할 때만 로그인해 주세요.</strong>
+                <p class="member-guidance">회원가입만 먼저 해두어도 됩니다. 가입 직후 작품을 출품할 필요는 없습니다.</p>
+                <button class="btn cyan" type="button" data-auth-open="login">로그인 / 회원가입</button>
               </div>
               <div class="member-session" data-auth-member hidden>
                 <strong>로그인 완료</strong>
                 <span data-member-email></span>
                 <button class="ghost-member-button" type="button" data-sign-out>로그아웃</button>
               </div>
-              <p class="form-error" data-auth-message></p>
             </section>
 
             <fieldset class="submission-fields" data-submission-fields disabled>
@@ -611,7 +599,32 @@
       </div>
     </footer>
 
+    <div class="auth-modal" data-auth-modal hidden>
+      <div class="auth-modal-backdrop" data-auth-close></div>
+      <section class="auth-modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <button class="auth-modal-close" type="button" aria-label="닫기" data-auth-close>×</button>
+        <span class="auth-modal-kicker">SIADAFF MEMBER</span>
+        <h2 id="authModalTitle" data-auth-modal-title>로그인</h2>
+        <p>회원가입만 먼저 해두어도 됩니다. 지금 바로 작품을 출품하지 않아도 됩니다.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="memberEmail">회원 이메일</label>
+            <input id="memberEmail" type="email" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="memberPassword">비밀번호</label>
+            <input id="memberPassword" type="password" autocomplete="current-password" minlength="8">
+          </div>
+        </div>
+        <div class="member-actions">
+          <button class="btn cyan" type="button" data-sign-up>회원가입</button>
+          <button class="btn black" type="button" data-sign-in>로그인</button>
+        </div>
+        <p class="form-error" data-auth-message></p>
+      </section>
+    </div>
+
     <script src="assets/config.js?v=20260728-member-auth"></script>
-    <script type="module" src="assets/app.js?v=20260728-business-file-upload"></script>
+    <script type="module" src="assets/app.js?v=20260728-auth-modal"></script>
   </body>
 </html>
