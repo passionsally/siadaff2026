@@ -61,7 +61,95 @@
       "회원가입만 먼저 해두어도 됩니다. 지금 바로 작품을 출품하지 않아도 됩니다.": "You may sign up now. You do not need to submit immediately.",
       "출품 규정에 동의합니다.": "I agree to the submission guidelines.",
       "저작권/초상권/음원 사용 책임에 동의합니다.": "I accept responsibility for copyrights, likeness rights and music use.",
-      "수상작 및 출품작 홍보 활용에 동의합니다.": "I agree to promotional use of submitted and winning works."
+      "수상작 및 출품작 홍보 활용에 동의합니다.": "I agree to promotional use of submitted and winning works.",
+      "(선택)": "(Optional)", "(주)케이미디어진흥원": "KMedia Innovation Co., Ltd.",
+      "(주)케이미디어진흥원 KMedia Innovation": "KMedia Innovation Co., Ltd.",
+      "* 필수 입력": "* Required", "01 / 작품 정보": "01 / Work Information",
+      "02 / 원본 영상 URL": "02 / Original Video URL", "03 / 개인정보 및 동의": "03 / Personal Information & Consent",
+      "14:00 예정": "Scheduled for 2:00 PM", "2026년 10월 20일(화)": "Tuesday, October 20, 2026",
+      "2026년 10월 24일~11월 10일": "October 24–November 10, 2026",
+      "2026년 11월 12일(목)": "Thursday, November 12, 2026",
+      "2026년 11월 21일(토)": "Saturday, November 21, 2026",
+      "2026년 6월 1일~8월 30일": "June 1–August 30, 2026",
+      "2026년 9월 28일(월)": "Monday, September 28, 2026",
+      "39초": "39 sec", "39초 광고영상": "39-sec Ad Film", "3분 단편영화": "3-min Short Film",
+      "59초 숏폼드라마": "59-sec Short-form Drama",
+      "AI 사용 시 출품 단계에서 활용 여부와 간단한 활용 내역을 기재합니다.": "If AI was used, disclose its use and briefly describe how it was used when submitting.",
+      "JPG, PNG, PDF / A2 이상 권장 / 300dpi": "JPG, PNG or PDF / A2 or larger recommended / 300 dpi",
+      "MP4 권장 / FHD 이상 / 16:9 또는 9:16": "MP4 recommended / FHD or higher / 16:9 or 9:16",
+      "SIADAFF 1회 39초 광고영상 부문 출품작": "SIADAFF 1st Edition · 39-sec Ad Film Entry",
+      "SIADAFF 1회 3분 단편영화 부문 출품작": "SIADAFF 1st Edition · 3-min Short Film Entry",
+      "SIADAFF 1회 59초 숏폼드라마 부문 출품작": "SIADAFF 1st Edition · 59-sec Short-form Drama Entry",
+      "SIADAFF 1회 포스터 부문 출품작": "SIADAFF 1st Edition · Poster Entry",
+      "URL 오류, 비공개, 삭제 상태의 작품은 심사 제외될 수 있습니다.": "Entries with an invalid, private or deleted URL may be excluded from judging.",
+      "가 생성되었습니다.": "has been created.", "강남 인근": "Gangnam area, Seoul",
+      "개인(성인부)": "Individual (Adult)", "개인(청소년부)": "Individual (Youth)",
+      "단체(기업)": "Organization (Company)",
+      "개인정보 활용 및 마케팅 정보 수신에 동의합니다. 수집 목적은 영화제 참가출품, 운영 안내, 관련 행사 및 프로그램 안내, 홍보·마케팅 정보 제공이며, 이용 범위는 SIADAFF 및 주최·주관사가 운영하거나 연계하는 영화제, 공모전, 교육, 해커톤, 후속 프로그램의 안내·운영·정보제공·홍보·마케팅 연락입니다. 보관 기간은 접수일로부터 1년이며 이후 파기합니다.": "I consent to the use of my personal information and to receiving marketing communications. The information is collected to process festival entries, provide operational notices, announce related events and programs, and provide promotional and marketing information. It may be used by SIADAFF and its organizers or operators to communicate information about festivals, competitions, education, hackathons and follow-up programs they operate or support. The information will be retained for one year from the submission date and then deleted.",
+      "개인출품 및 단체출품을 포함하여 본 대회에는 1개 작품만 출품할 수 있음을 확인했습니다.": "I confirm that I may submit only one work to this competition, whether as an individual or an organization.",
+      "개인출품은 미기재 · 단체출품 선택 시 필수 입력": "Leave blank for individual entries · Required for organization entries",
+      "개인출품은 미기재 · 단체출품 필수 · PDF, JPG, PNG · 최대 10MB": "Not required for individual entries · Required for organizations · PDF, JPG or PNG · Max. 10 MB",
+      "개인출품이든 단체출품이든 본 대회에 1개 작품만 출품할 수 있습니다.": "Only one work may be submitted to this competition, whether as an individual or an organization.",
+      "공기관": "Public Institution", "공식 홈페이지에서 출품신청서를 작성합니다.": "Complete the submission form on the official website.",
+      "국내 참가자는 공식 홈페이지에서 출품권을 결제한 후 접수하며, 해외 참가자는 추후 FilmFreeway 영어 페이지에서 참가비를 결제하고 접수할 예정입니다. 판매 단계별 가격과 신청 링크는 별도 안내합니다.": "Korean entrants purchase an entry pass on the official website before submitting. International entrants will pay and submit through the FilmFreeway English page. Pricing by sales period and application links will be announced separately.",
+      "규격, 주제 적합성, 기본 완성도 평가": "Evaluation of specifications, theme relevance and basic execution",
+      "극영화, 다큐멘터리, 애니메이션, 실험영화 가능": "Fiction, documentary, animation and experimental films are accepted",
+      "기업 혹은 공공기관 최대 5개": "Up to five companies or public institutions",
+      "단체란 사업자등록번호가 부여된 소상공인, 중소기업, 중견기업, 대기업의 본사 혹은 지사를 의미합니다.": "An organization means the headquarters or a branch of a registered small business, SME, mid-sized company or large corporation.",
+      "대표 : 이시은 Lee Sieun": "Representative: Lee Sieun", "동일 작품의 중복 부문 출품은 불가합니다.": "The same work may not be entered in multiple categories.",
+      "러닝타임 또는 포스터 사이즈, 제작 연도, 제작 형태, AI 활용 여부를 확인합니다.": "Runtime or poster dimensions, production year, production format and AI use will be reviewed.",
+      "보관 기간은 1년입니다.": "The retention period is one year.",
+      "사업자등록은 출품 6개월 전인 2026년 3월 28일 이전에 개업한 회사여야 합니다.": "The business must have opened before March 28, 2026, six months before submissions open.",
+      "서울국제광고영화제 SIADAFF 2026 | 공식 출품 안내": "SIADAFF 2026 | Official Submission Guide",
+      "세로형·가로형 가능 / 연속극의 1개 에피소드 가능": "Portrait or landscape / One episode of a series is accepted",
+      "수상작 및 출품작은 주최 측이 비영리 홍보용으로 상영, 게시, 편집 활용할 수 있습니다.": "The organizer may screen, publish and edit submitted or winning works for non-commercial promotional purposes.",
+      "수상작은 심사 종료 후에도 삭제할 수 없습니다.": "Winning entries may not be deleted after judging.",
+      "수집 목적은 영화제 참가출품, 운영 안내, 관련 행사 및 프로그램 안내, 홍보·마케팅 정보 제공입니다.": "Information is collected to process festival entries, provide operational notices, announce related events and programs, and provide promotional and marketing information.",
+      "수집 항목은 회원 이메일, 이름, 연락처, 원본 영상 URL, 개인정보 활용 동의 여부입니다.": "Collected data includes member email, name, phone number, original video URL and consent status.",
+      "시놉시스 또는 카피는 700자 내외를 권장하되, 최대 1,200자 이내로 작성합니다.": "A synopsis or copy of about 700 characters is recommended, with a maximum of 1,200 characters.",
+      "실사 촬영, 애니메이션, 모션그래픽, 혼합형 모두 허용됩니다.": "Live action, animation, motion graphics and hybrid formats are all accepted.",
+      "심사 종료일까지 삭제 또는 비공개 전환을 금지합니다.": "Do not delete the video or change it to private before judging ends.",
+      "심사위원단 토의 및 점수 합산": "Jury deliberation and combined scores",
+      "영상 파일 용량은 1GB 이내를 권장합니다.": "A video file size of 1 GB or less is recommended.",
+      "영상, 이미지, 폰트, 음원, 효과음은 직접 제작 또는 정당한 라이선스를 확보해야 합니다.": "Videos, images, fonts, music and sound effects must be original or properly licensed.",
+      "영상은 MP4, H.264 코덱을 권장합니다.": "MP4 with the H.264 codec is recommended.",
+      "외국인 참가자는 추후 FilmFreeway 영어 페이지에서 소정의 참가비를 결제하고 접수 가능할 예정이며, FilmFreeway 신청 링크는 생성 후 공지합니다.": "International entrants will be able to pay the entry fee and submit through the FilmFreeway English page. The FilmFreeway link will be announced when available.",
+      "외국인 참가자는 추후 FilmFreeway 영어 페이지에서 소정의 참가비를 결제하고 접수 가능할 예정이며, 신청 링크는 생성 후 별도 공개합니다.": "International entrants will be able to pay the entry fee and submit through the FilmFreeway English page. The application link will be published separately when available.",
+      "원본 영상은 유튜브에 일부 공개로 올린 뒤 URL을 제출하세요. 비공개 영상과 SNS 하이라이트 URL은 받지 않습니다.": "Upload the original video to YouTube as Unlisted and submit its URL. Private videos and social-media highlight URLs are not accepted.",
+      "원본 영상을 유튜브 ‘일부 공개’로 설정한 URL만 제출하세요. ‘비공개’ 영상은 심사할 수 없습니다.": "Submit only a YouTube URL set to Unlisted. Private videos cannot be judged.",
+      "원본 영상을 유튜브에 ‘일부 공개’로 업로드하고 URL을 제출합니다.": "Upload the original video to YouTube as Unlisted and submit the URL.",
+      "음향은 2채널 스테레오, 클리핑과 과도한 노이즈가 없는 수준을 권장합니다.": "Two-channel stereo audio without clipping or excessive noise is recommended.",
+      "이미지 생성 AI, 영상 생성·편집 AI, 음성 합성, 대사 생성, 색보정 등 AI 활용이 가능합니다.": "Image-generation AI, video generation or editing AI, voice synthesis, dialogue generation, color grading and other AI uses are permitted.",
+      "이용 범위는 SIADAFF 및 주최·주관사가 운영하거나 연계하는 영화제, 공모전, 교육, 해커톤, 후속 프로그램의 안내·운영·정보제공·홍보·마케팅 연락입니다.": "The information may be used by SIADAFF and its organizers or operators for notices, operation, information, promotion and marketing related to festivals, competitions, education, hackathons and follow-up programs they operate or support.",
+      "작품명은 국문과 영문 모두 기록을 권장합니다.": "Providing both Korean and English titles is recommended.",
+      "저작권, 초상권, 개인정보 수집 및 이용에 동의합니다.": "You must agree to copyright, likeness-right and personal-information collection terms.",
+      "저작권, 초상권, 상표권 침해와 타인의 얼굴·음성을 무단 사용한 딥페이크는 금지됩니다.": "Copyright, likeness-right and trademark infringement, and deepfakes using another person's face or voice without permission, are prohibited.",
+      "접수번호": "Submission Number", "접수완료": "Submission Complete",
+      "접수일로부터 1년 뒤 파기합니다.": "The information will be deleted one year after submission.",
+      "출품 분야에 맞는 접수 제목을 선택하세요.": "Select the submission title that matches your category.",
+      "출품 카테고리와 연령부문을 선택하고 작품 정보를 입력합니다.": "Select the entry category and entrant division, then enter the work information.",
+      "트로피와 상금, 상품은 수도권 거주자는 2주일 내 직접 수령을 원칙으로 하며, 지방 거주자는 택배 발송으로 안내합니다.": "Recipients in the Seoul metropolitan area should collect trophies, prize money and gifts in person within two weeks; delivery will be arranged for recipients outside the area.",
+      "포스터": "Poster", "포스터 용량은 30MB 이내를 권장합니다.": "A poster file size of 30 MB or less is recommended.",
+      "포스터는 JPG, PNG, PDF 형식과 300dpi 이상, RGB 컬러 모드를 권장합니다.": "JPG, PNG or PDF at 300 dpi or higher in RGB color mode is recommended.",
+      "포스터는 디자인 완성도와 가독성, CF, 숏폼드라마, 단편영화는 서사·연기·연출을 함께 봅니다. 특별상은 후원기업 및 부문 특성에 맞춰 별도 검토합니다.": "Posters are judged on design quality and readability; commercials, short-form dramas and short films are judged on narrative, performance and direction. Special Awards are reviewed separately according to sponsor and category characteristics.",
+      "프레임 레이트는 24, 25, 30fps 중 작품 전체에서 일관 유지합니다.": "Use a consistent frame rate of 24, 25 or 30 fps throughout the work.",
+      "한국미디어창업뉴스 X 엑스콘다": "Korea Media Startup News × XCONDA",
+      "해상도는 최소 1920x1080, 최대 4K를 권장합니다.": "A resolution from 1920×1080 up to 4K is recommended.",
+      "후원금 납부와 기업별 콘셉트·테마 접수 후 공식 랜딩페이지에 공지": "Announced on the official landing page after sponsorship payment and approval of each sponsor's concept and theme",
+      "후원기업": "Sponsor", "후원기업 로고와 제품 실물은 허용된 범위와 브랜드 가이드라인 안에서 사용합니다.": "Sponsor logos and physical products must be used within the permitted scope and brand guidelines.",
+      "후원기업 및 후원공기관의 브랜드, 제품, 서비스를 주제로 한 창의적인 광고 및 영화": "Creative advertising and films featuring the brands, products or services of sponsoring companies and public institutions",
+      "후원기업 선정 및 브랜드 테마 확정": "Sponsor selection and brand-theme confirmation",
+      "59초 Short-form": "59-sec Short-form", "AI 활용 내역이 있다면 간단히 작성하세요": "Briefly describe how AI was used, if applicable",
+      "SIADAFF 메인 비주얼": "SIADAFF main visual", "개인 및 단체 출품 구분": "Individual and organization entry divisions",
+      "국문 700자 내외 권장 / 최대 1,200자": "About 700 Korean characters recommended / Max. 1,200",
+      "심사 기준 100점 만점": "Judging criteria out of 100 points", "예: 39초 / A2 300dpi": "e.g. 39 sec / A2 300 dpi",
+      "작품명을 입력하세요": "Enter the work name", "작품의 한글 제목을 입력하세요": "Enter the Korean title",
+      "파트너사 로고 자리": "Partner logo area", "후원기업과 후원공기관 로고 자리": "Sponsor and supporting-institution logo area",
+      "A4K 공공강사": "A4K Public Instructors", "AI 창작자를 표현한 SIADAFF 메인 비주얼": "SIADAFF main visual featuring an AI creator",
+      "SIADAFF 트로피와 AI 창작 심사 메시지": "SIADAFF trophy and AI-creation judging message",
+      "미디어창업넷 HRD": "Media Startup Net HRD", "미디어창업넷 평생교육원": "Media Startup Net Lifelong Education Center",
+      "미디어창업뉴스": "Media Startup News", "서울국제광고영화제 SIADAFF": "Seoul International Advertising Art Film Festival · SIADAFF",
+      "원비즈연구소 ONEBIZ Lab.": "ONEBIZ Lab.", "제노북스 ZENO BOOKS": "ZENO BOOKS", "제노스쿨 ZENO SCHOOL": "ZENO SCHOOL"
     },
     "zh-CN": {
       "주요 메뉴": "主菜单", "홈페이지 언어 선택": "网站语言", "SIADAFF 홈": "SIADAFF首页",
@@ -131,7 +219,13 @@
   const buttons = Array.from(document.querySelectorAll("[data-site-language]"));
   const originalText = new WeakMap();
   const originalAttributes = new WeakMap();
-  const translatableAttributes = ["placeholder", "title", "aria-label"];
+  const translatableAttributes = ["placeholder", "title", "aria-label", "alt"];
+  const pageTitles = {
+    ko: "서울국제광고영화제 SIADAFF 2026 | 공식 출품 안내",
+    en: "SIADAFF 2026 | Official Submission Guide",
+    "zh-CN": "SIADAFF 2026｜官方参赛指南"
+  };
+  let observer;
 
   function selectedLanguage() {
     const value = new URL(location.href).searchParams.get("lang");
@@ -139,6 +233,7 @@
   }
 
   function translateText(language) {
+    observer?.disconnect();
     const dictionary = dictionaries[language] || {};
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     const nodes = [];
@@ -167,11 +262,13 @@
         element.setAttribute(attribute, language === "ko" ? source : (dictionary[source] || source));
       });
     });
+    observer?.observe(document.body, { childList: true, subtree: true, characterData: true });
   }
 
   function applyLanguage(language) {
     translateText(language);
     document.documentElement.lang = language;
+    document.title = pageTitles[language];
     buttons.forEach((button) => {
       const active = button.dataset.siteLanguage === language;
       button.classList.toggle("is-active", active);
@@ -188,6 +285,21 @@
       history.replaceState({}, "", url);
       applyLanguage(language);
     });
+  });
+
+  observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "characterData") originalText.delete(mutation.target);
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) originalText.delete(node);
+        node.querySelectorAll?.("*").forEach((element) => {
+          element.childNodes.forEach((child) => {
+            if (child.nodeType === Node.TEXT_NODE) originalText.delete(child);
+          });
+        });
+      });
+    });
+    translateText(selectedLanguage());
   });
 
   applyLanguage(selectedLanguage());
