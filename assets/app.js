@@ -194,7 +194,7 @@ function setSubmitting(isSubmitting) {
 }
 
 function initReveal() {
-  const items = document.querySelectorAll("section, .category-cards article, .rule-panel, .status-flow article");
+  const items = document.querySelectorAll("section, .category-cards article, .rule-panel");
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {

@@ -879,51 +879,6 @@ textarea {
   line-height: 1.7;
 }
 
-.status-section {
-  padding: 96px 20px;
-  color: var(--white);
-  background:
-    linear-gradient(180deg, rgba(83, 199, 208, .08), rgba(244, 43, 125, .08)),
-    #090d0f;
-}
-
-.light-title span {
-  color: var(--cyan);
-}
-
-.status-flow {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.status-flow article {
-  min-height: 210px;
-  padding: 28px;
-  border: 1px solid rgba(255, 255, 255, .14);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, .06);
-}
-
-.status-flow span {
-  color: var(--pink);
-  font-weight: 950;
-}
-
-.status-flow h3 {
-  margin: 14px 0 12px;
-  color: var(--cyan);
-  font-size: 24px;
-}
-
-.status-flow p {
-  margin: 0;
-  color: rgba(255, 255, 255, .66);
-  line-height: 1.65;
-}
-
 .submit-section {
   padding: 96px 20px;
   background: #eef2f2;
@@ -1254,8 +1209,7 @@ textarea {
 
 section,
 .category-cards article,
-.rule-panel,
-.status-flow article {
+.rule-panel {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity .62s ease, transform .62s ease;
@@ -1263,8 +1217,7 @@ section,
 
 section.is-visible,
 .category-cards article.is-visible,
-.rule-panel.is-visible,
-.status-flow article.is-visible {
+.rule-panel.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1294,7 +1247,6 @@ section.is-visible,
   .category-cards,
   .schedule-cards,
   .rules-layout,
-  .status-flow,
   .submit-layout,
   .url-grid {
     grid-template-columns: 1fr;
@@ -1350,7 +1302,6 @@ section.is-visible,
   .schedule-section,
   .rules-section,
   .reward-section,
-  .status-section,
   .submit-section {
     padding-block: 72px;
   }
