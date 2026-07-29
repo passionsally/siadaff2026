@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="포스터, 39초 광고영상, 59초 숏폼드라마, 3분 단편영화 크리에이티브">
     <meta name="twitter:image" content="https://www.siadaff.com/assets/siadaff-39prime-preview.png">
     <link rel="icon" href="assets/favicon.png">
-    <link rel="stylesheet" href="assets/styles.css?v=20260729-consent-layout">
+    <link rel="stylesheet" href="assets/styles.css?v=20260729-language-menu">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -66,10 +66,14 @@
           <a class="auth-link login-link" href="#login" data-auth-open="login">로그인</a>
           <a class="auth-link signup-link" href="#signup" data-auth-open="signup">회원가입</a>
           <a class="submit-link" href="#submit">작품출품하기</a>
+          <div class="site-language-menu" aria-label="홈페이지 언어 선택">
+            <button type="button" data-site-language="ko">KOREA</button>
+            <button type="button" data-site-language="en">ENGLISH</button>
+            <button type="button" data-site-language="zh-CN">中文</button>
+          </div>
         </div>
       </nav>
     </header>
-
     <div class="page-context-badge" data-page-context hidden aria-live="polite">
       <img src="assets/siadaff-trophy.svg" alt="">
       <span data-page-context-label></span>
@@ -608,6 +612,7 @@
     </div>
 
     <script src="assets/config.js?v=20260728-member-auth"></script>
+    <script src="assets/i18n.js?v=20260729-language-menu"></script>
     <script type="module" src="assets/app.js?v=20260729-remove-review-flow"></script>
   </body>
 </html>
