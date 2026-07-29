@@ -1135,6 +1135,13 @@ textarea {
   line-height: 1.55;
 }
 
+.consent-text {
+  min-width: 0;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 .consent-list input {
   width: 18px;
   height: 18px;
