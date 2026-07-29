@@ -383,6 +383,34 @@ textarea {
   text-align: center;
 }
 
+.impact-grid .entry-fee-card {
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: clamp(30px, 5vw, 50px);
+  color: var(--white);
+  background: #081719;
+  border: 3px solid #050606;
+  border-radius: 22px;
+  box-shadow: 0 24px 52px rgba(0, 0, 0, .28);
+}
+
+.impact-grid .entry-fee-card > span,
+.impact-grid .entry-fee-card > p {
+  color: var(--white);
+  font-weight: 950;
+}
+
+.impact-grid .entry-fee-card .regular-price {
+  color: rgba(255, 255, 255, .66);
+}
+
+.impact-grid .entry-fee-card .earlybird-benefit-note {
+  color: var(--black);
+  background: var(--cyan);
+  border: 2px solid var(--white);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .22);
+}
+
 .impact-grid article span,
 .section-title span,
 .rule-panel span,
