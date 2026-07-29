@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="포스터, 39초 광고영상, 59초 숏폼드라마, 3분 단편영화 크리에이티브">
     <meta name="twitter:image" content="https://www.siadaff.com/assets/siadaff-39prime-preview.png">
     <link rel="icon" href="assets/favicon.png">
-    <link rel="stylesheet" href="assets/styles.css?v=20260728-page-context">
+    <link rel="stylesheet" href="assets/styles.css?v=20260729-required-fields">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -452,7 +452,7 @@
             </section>
 
             <fieldset class="submission-fields" data-submission-fields disabled>
-            <div class="form-part">01 / 작품 정보</div>
+            <div class="form-part">01 / 작품 정보 <span class="required-legend">* 필수 입력</span></div>
             <div class="form-grid">
               <div class="field hp-field" aria-hidden="true">
                 <label for="website">Website</label>
@@ -460,7 +460,7 @@
               </div>
 
               <div class="field">
-                <label for="category">출품 부문</label>
+                <label for="category">출품 부문 <span class="required-mark">*</span></label>
                 <select id="category" name="category" required>
                   <option value="Brand Poster">포스터</option>
                   <option value="Ad Film">39초 광고영상</option>
@@ -470,7 +470,7 @@
               </div>
 
               <div class="field">
-                <label for="ageGroup">개인/단체</label>
+                <label for="ageGroup">개인/단체 <span class="required-mark">*</span></label>
                 <select id="ageGroup" name="ageGroup" required>
                   <option value="">선택</option>
                   <option value="청소년부">개인(청소년부)</option>
@@ -481,7 +481,7 @@
               </div>
 
               <div class="field full">
-                <label for="entryTitle">접수 제목</label>
+                <label for="entryTitle">접수 제목 <span class="required-mark">*</span></label>
                 <select id="entryTitle" name="entryTitle" required>
                   <option value="SIADAFF 1회 포스터 부문 출품작" data-category="Brand Poster">SIADAFF 1회 포스터 부문 출품작</option>
                   <option value="SIADAFF 1회 39초 광고영상 부문 출품작" data-category="Ad Film">SIADAFF 1회 39초 광고영상 부문 출품작</option>
@@ -492,34 +492,34 @@
               </div>
 
               <div class="field full">
-                <label for="workTitle">작품명</label>
+                <label for="workTitle">작품명 <span class="required-mark">*</span></label>
                 <input id="workTitle" name="workTitle" placeholder="작품명을 입력하세요" required>
               </div>
 
               <div class="field">
-                <label for="titleKo">제목 한글</label>
+                <label for="titleKo">제목 한글 <span class="required-mark">*</span></label>
                 <input id="titleKo" name="titleKo" placeholder="작품의 한글 제목을 입력하세요" required>
               </div>
 
               <div class="field">
-                <label for="titleEn">제목 영문</label>
+                <label for="titleEn">제목 영문 <span class="required-mark">*</span></label>
                 <input id="titleEn" name="titleEn" lang="en" placeholder="Enter the English title" required>
               </div>
 
               <div class="field" id="businessNumberField" hidden>
-                <label for="businessRegistrationNumber">사업자등록번호</label>
+                <label for="businessRegistrationNumber">사업자등록번호 <span class="required-mark">*</span></label>
                 <input id="businessRegistrationNumber" name="businessRegistrationNumber" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="000-00-00000" aria-describedby="businessNumberHelp">
-                <span class="help" id="businessNumberHelp">단체출품 선택 시 필수 입력</span>
+                <span class="help" id="businessNumberHelp">개인출품은 미기재 · 단체출품 선택 시 필수 입력</span>
               </div>
 
               <div class="field" id="businessFileField" hidden>
-                <label for="businessRegistrationFile">사업자등록증 파일</label>
+                <label for="businessRegistrationFile">사업자등록증 파일 <span class="required-mark">*</span></label>
                 <input id="businessRegistrationFile" name="businessRegistrationFile" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" aria-describedby="businessFileHelp">
-                <span class="help" id="businessFileHelp">단체출품 필수 · PDF, JPG, PNG · 최대 10MB</span>
+                <span class="help" id="businessFileHelp">개인출품은 미기재 · 단체출품 필수 · PDF, JPG, PNG · 최대 10MB</span>
               </div>
 
               <div class="field">
-                <label for="aiUse">AI 활용 여부</label>
+                <label for="aiUse">AI 활용 여부 <span class="required-mark">*</span></label>
                 <select id="aiUse" name="aiUse" required>
                   <option value="">선택</option>
                   <option>활용함</option>
@@ -528,22 +528,22 @@
               </div>
 
               <div class="field">
-                <label for="runtime">러닝타임 또는 포스터 규격</label>
+                <label for="runtime">러닝타임 또는 포스터 규격 <span class="required-mark">*</span></label>
                 <input id="runtime" name="runtime" placeholder="예: 39초 / A2 300dpi" required>
               </div>
 
               <div class="field full">
-                <label for="aiMemo">AI 활용 설명</label>
+                <label for="aiMemo">AI 활용 설명 <span class="optional-mark">(선택)</span></label>
                 <textarea id="aiMemo" name="aiMemo" placeholder="AI 활용 내역이 있다면 간단히 작성하세요"></textarea>
               </div>
 
               <div class="field full">
-                <label for="synopsisKo">시놉시스 한글</label>
+                <label for="synopsisKo">시놉시스 한글 <span class="required-mark">*</span></label>
                 <textarea id="synopsisKo" name="synopsisKo" maxlength="1200" placeholder="국문 700자 내외 권장 / 최대 1,200자" required></textarea>
               </div>
 
               <div class="field full">
-                <label for="synopsisEn">시놉시스 영문</label>
+                <label for="synopsisEn">시놉시스 영문 <span class="required-mark">*</span></label>
                 <textarea id="synopsisEn" name="synopsisEn" lang="en" maxlength="1200" placeholder="English synopsis around 700 characters / max 1,200" required></textarea>
               </div>
             </div>
@@ -551,7 +551,7 @@
             <div class="form-part">02 / 원본 영상 URL</div>
             <div class="url-grid">
               <div class="field full">
-                <label for="youtubeUrl">원본 영상 유튜브 URL</label>
+                <label for="youtubeUrl">원본 영상 유튜브 URL <span class="required-mark">*</span></label>
                 <input id="youtubeUrl" name="youtubeUrl" type="url" placeholder="https://youtu.be/..." required>
               </div>
             </div>
@@ -560,27 +560,27 @@
             <div class="form-part">03 / 개인정보 및 동의</div>
             <div class="form-grid">
               <div class="field">
-                <label for="name">이름</label>
+                <label for="name">이름 <span class="required-mark">*</span></label>
                 <input id="name" name="name" autocomplete="name" required>
               </div>
 
               <div class="field">
-                <label for="phone">연락처</label>
+                <label for="phone">연락처 <span class="required-mark">*</span></label>
                 <input id="phone" name="phone" autocomplete="tel" required>
               </div>
 
               <div class="field full">
-                <label for="email">이메일</label>
+                <label for="email">이메일 <span class="required-mark">*</span></label>
                 <input id="email" name="email" type="email" autocomplete="email" required>
               </div>
             </div>
 
             <div class="consent-list">
-              <label><input id="rulesConsent" name="rulesConsent" type="checkbox" required> 출품 규정에 동의합니다.</label>
-              <label><input id="rightsConsent" name="rightsConsent" type="checkbox" required> 저작권/초상권/음원 사용 책임에 동의합니다.</label>
-              <label><input id="privacyConsent" name="privacyConsent" type="checkbox" required> 개인정보 활용 및 마케팅 정보 수신에 동의합니다. 수집 목적은 영화제 참가출품, 운영 안내, 관련 행사 및 프로그램 안내, 홍보·마케팅 정보 제공이며, 이용 범위는 SIADAFF 및 주최·주관사가 운영하거나 연계하는 영화제, 공모전, 교육, 해커톤, 후속 프로그램의 안내·운영·정보제공·홍보·마케팅 연락입니다. 보관 기간은 접수일로부터 1년이며 이후 파기합니다.</label>
-              <label><input id="promotionConsent" name="promotionConsent" type="checkbox" required> 수상작 및 출품작 홍보 활용에 동의합니다.</label>
-              <label><input id="teamParticipationConsent" name="teamParticipationConsent" type="checkbox" required> 개인출품 및 단체출품을 포함하여 본 대회에는 1개 작품만 출품할 수 있음을 확인했습니다.</label>
+              <label><input id="rulesConsent" name="rulesConsent" type="checkbox" required> <span class="required-mark">*</span> 출품 규정에 동의합니다.</label>
+              <label><input id="rightsConsent" name="rightsConsent" type="checkbox" required> <span class="required-mark">*</span> 저작권/초상권/음원 사용 책임에 동의합니다.</label>
+              <label><input id="privacyConsent" name="privacyConsent" type="checkbox" required> <span class="required-mark">*</span> 개인정보 활용 및 마케팅 정보 수신에 동의합니다. 수집 목적은 영화제 참가출품, 운영 안내, 관련 행사 및 프로그램 안내, 홍보·마케팅 정보 제공이며, 이용 범위는 SIADAFF 및 주최·주관사가 운영하거나 연계하는 영화제, 공모전, 교육, 해커톤, 후속 프로그램의 안내·운영·정보제공·홍보·마케팅 연락입니다. 보관 기간은 접수일로부터 1년이며 이후 파기합니다.</label>
+              <label><input id="promotionConsent" name="promotionConsent" type="checkbox" required> <span class="required-mark">*</span> 수상작 및 출품작 홍보 활용에 동의합니다.</label>
+              <label><input id="teamParticipationConsent" name="teamParticipationConsent" type="checkbox" required> <span class="required-mark">*</span> 개인출품 및 단체출품을 포함하여 본 대회에는 1개 작품만 출품할 수 있음을 확인했습니다.</label>
             </div>
 
             <div class="form-error" data-form-error></div>

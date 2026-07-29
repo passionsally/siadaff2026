@@ -1107,6 +1107,24 @@ textarea {
   font-weight: 950;
 }
 
+.required-mark,
+.required-legend {
+  color: var(--pink);
+  font-weight: 950;
+}
+
+.required-legend {
+  margin-left: 8px;
+  font-size: 12px;
+  text-transform: none;
+}
+
+.optional-mark {
+  color: #77868a;
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .field input,
 .field select,
 .field textarea {
