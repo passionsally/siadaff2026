@@ -966,6 +966,21 @@ textarea {
   line-height: 1.18;
 }
 
+:lang(zh-CN) .submit-intro > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+:lang(zh-CN) .submit-intro h2 {
+  font-size: clamp(24px, 1.9vw, 30px);
+  line-height: 1.25;
+}
+
+:lang(zh-CN) .submit-intro p,
+:lang(zh-CN) .submit-intro li {
+  font-size: 15px;
+}
+
 .submit-intro p {
   margin: 18px 0 0;
   color: rgba(255, 255, 255, .7);
