@@ -758,7 +758,16 @@ textarea {
   position: relative;
   width: min(1320px, 100%);
   margin: 0 auto;
-  background: #eceeee;
+  padding-bottom: clamp(100px, 9vw, 150px);
+  background:
+    linear-gradient(
+      to bottom,
+      #eceeee 0%,
+      #f0f1f1 22%,
+      #f5f6f6 46%,
+      rgba(255, 255, 255, .94) 76%,
+      #fff 100%
+    );
 }
 
 .trophy-wrap::before {
