@@ -354,7 +354,12 @@
 }
 
 .timeline-card {
+  color: #000000;
   background: #f2f2f2;
+}
+
+.timeline-card h3 {
+  color: #000000;
 }
 
 .timeline-card time {
