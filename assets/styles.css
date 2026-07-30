@@ -960,6 +960,15 @@ textarea {
   font-weight: 950;
 }
 
+.reward-main .award-total-count {
+  display: block;
+  margin-top: 22px;
+  color: var(--pink);
+  font-size: clamp(26px, 3.5vw, 46px);
+  line-height: 1.1;
+  font-weight: 950;
+}
+
 .reward-main p {
   width: min(680px, 100%);
   margin: 24px 0 0;
