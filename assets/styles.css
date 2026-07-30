@@ -533,7 +533,7 @@ textarea {
 }
 
 .partner-row {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .placeholder-row div {
@@ -1366,6 +1366,19 @@ textarea {
 .footer-org p {
   font-size: 12px;
   font-weight: 700;
+}
+
+.category-cards article:first-child {
+  color: var(--white);
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+.category-cards article:first-child small,
+.category-cards article:first-child h3,
+.category-cards article:first-child p,
+.category-cards article:first-child em {
+  color: var(--white);
 }
 
 h1,

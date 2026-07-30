@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-const categories = new Set(["Brand Poster", "Ad Film", "Short-form Drama", "Short Film", "Short Animation"]);
+const categories = new Set(["Ad Film", "Short-form Drama", "Short Film", "Short Animation"]);
 const ageGroups = new Set(["청소년부", "성인부", "단체출품"]);
 const productionTypes = new Set(["개인출품", "단체출품"]);
 const aiUseValues = new Set(["활용함", "활용하지 않음"]);
@@ -101,7 +101,7 @@ function validate(payload: Payload, businessFile: File | null) {
     ["제목 영문", titleEn],
     ["연령 부문", ageGroup],
     ["제작 형태", productionType],
-    ["러닝타임 또는 포스터 규격", runtime],
+    ["러닝타임", runtime],
     ["AI 활용 여부", aiUse],
     ["시놉시스 한글", synopsisKo],
     ["시놉시스 영문", synopsisEn],

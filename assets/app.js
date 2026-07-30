@@ -36,7 +36,6 @@ const supabaseClient = createClient(
 let currentSession = null;
 
 const categoryNames = {
-  "Brand Poster": "포스터",
   "Ad Film": "39초 광고영상",
   "Short-form Drama": "59초 숏폼드라마",
   "Short Film": "3분 단편영화",
