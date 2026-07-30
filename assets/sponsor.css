@@ -1,5 +1,5 @@
 .sponsor-page {
-  background: #050606;
+  background: #000000;
 }
 
 .sponsor-page section {
@@ -33,8 +33,16 @@
 
 .language-switch a:hover,
 .language-switch a.is-active {
-  color: #061012;
+  color: #ffffff;
   background: var(--cyan);
+}
+
+.sponsor-page h1,
+.sponsor-page h2,
+.sponsor-page h3,
+.sponsor-summary-grid strong,
+.timeline-card time {
+  font-family: "NanumSquare", "Nanum Gothic", sans-serif;
 }
 
 .sponsor-hero {
@@ -45,7 +53,7 @@
   align-items: center;
   color: var(--white);
   overflow: hidden;
-  background: #050606;
+  background: #000000;
 }
 
 .sponsor-hero::before {
@@ -53,8 +61,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(5, 6, 6, .86), rgba(5, 6, 6, .5) 48%, rgba(5, 6, 6, .72)),
-    linear-gradient(180deg, rgba(5, 6, 6, .18), rgba(5, 6, 6, .92)),
+    linear-gradient(90deg, rgba(0, 0, 0, .9), rgba(0, 0, 0, .54) 48%, rgba(0, 0, 0, .78)),
+    linear-gradient(180deg, rgba(0, 0, 0, .18), rgba(0, 0, 0, .94)),
     url("hero-visual-stage.png") center / cover no-repeat;
   filter: saturate(1.08) contrast(1.08);
 }
@@ -101,7 +109,7 @@
 
 .sponsor-summary {
   padding: 52px 20px;
-  background: var(--cyan);
+  background: #ffffff;
 }
 
 .sponsor-summary-grid {
@@ -118,9 +126,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #061012;
-  background: rgba(255, 255, 255, .72);
+  color: #000000;
+  background: #f2f2f2;
   border-radius: var(--radius);
+}
+
+.sponsor-summary-grid article:first-child {
+  color: #ffffff;
+  background: #e91e63;
+}
+
+.sponsor-summary-grid article:first-child span,
+.sponsor-summary-grid article:first-child strong {
+  color: #ffffff;
 }
 
 .sponsor-summary-grid span,
@@ -149,7 +167,7 @@
 
 .sponsor-band.dark {
   color: var(--white);
-  background: #080c0e;
+  background: #000000;
 }
 
 .sponsor-section-title {
@@ -329,7 +347,7 @@
 }
 
 .timeline-card {
-  background: #fbffff;
+  background: #f2f2f2;
 }
 
 .timeline-card time {
@@ -344,8 +362,8 @@
   padding: 96px 20px;
   color: var(--white);
   background:
-    linear-gradient(135deg, rgba(83, 199, 208, .16), rgba(244, 43, 125, .14)),
-    #050606;
+    linear-gradient(135deg, rgba(233, 30, 99, .16), rgba(255, 255, 255, .04)),
+    #000000;
 }
 
 .contact-panel {
@@ -381,8 +399,8 @@
 .contact-list span {
   padding: 15px 16px;
   border-radius: var(--radius);
-  color: #061012;
-  background: #eef7f8;
+  color: #000000;
+  background: #f2f2f2;
   font-weight: 900;
 }
 
@@ -409,7 +427,7 @@
   z-index: 20;
   width: min(420px, calc(100vw - 32px));
   padding: 16px 18px;
-  color: #061012;
+  color: #ffffff;
   background: var(--cyan);
   border: 2px solid rgba(255, 255, 255, .92);
   border-radius: var(--radius);

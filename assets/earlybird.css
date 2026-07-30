@@ -1,15 +1,17 @@
-:root{--ink:#10191d;--cyan:#53c7d0;--pink:#f42b7d;--line:#dce7e8}
-*{box-sizing:border-box}body{margin:0;background:#f3f7f7;color:var(--ink);font-family:Arial,"Malgun Gothic",sans-serif}
+:root{--ink:#000000;--cyan:#e91e63;--pink:#e91e63;--line:#d9d9d9}
+@font-face{font-family:"NanumSquare";src:url("fonts/NanumSquare-Bold.ttf") format("truetype");font-weight:700 950;font-display:swap}@font-face{font-family:"Nanum Gothic";src:url("fonts/NanumGothic-Regular.ttf") format("truetype");font-weight:400 699;font-display:swap}@font-face{font-family:"Nanum Gothic";src:url("fonts/NanumGothic-Bold.ttf") format("truetype");font-weight:700 950;font-display:swap}
+*{box-sizing:border-box}body{margin:0;background:#f2f2f2;color:var(--ink);font-family:"Nanum Gothic",Arial,sans-serif}
 .page-context-badge{position:fixed;top:18px;left:18px;z-index:20;display:inline-flex;align-items:center;gap:10px;max-width:calc(100vw - 36px);padding:7px 15px 7px 7px;border:1px solid rgba(83,199,208,.72);border-radius:999px;color:#fff;background:rgba(3,8,10,.9);box-shadow:0 12px 34px rgba(0,0,0,.24);backdrop-filter:blur(10px)}.page-context-badge img{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 4px 7px rgba(83,199,208,.35))}.page-context-badge span{font-size:14px;font-weight:950;white-space:nowrap}
 .checkout{max-width:1080px;margin:auto;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:104px 24px 48px}
 .product,.order,.result{background:#fff;border:1px solid var(--line);border-radius:18px;padding:36px}
 .eyebrow{color:#1495a1;font-size:13px;font-weight:900;letter-spacing:.08em}.back{color:#526269;text-decoration:none}
-h1{font-size:42px;line-height:1.06;margin:18px 0}h2{font-size:26px}.lead,.note{color:#5a686e;line-height:1.65}
+h1,h2,button{font-family:"NanumSquare","Nanum Gothic",sans-serif}h1{font-size:42px;line-height:1.06;margin:18px 0}h2{font-size:26px}.lead,.note{color:#5a686e;line-height:1.65}
 .price{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:30px 0}.price strong{font-size:36px}.price span{background:var(--pink);color:#fff;padding:6px 10px;border-radius:99px;font-weight:900}
 li{margin:12px 0;line-height:1.5}label{display:grid;gap:8px;font-weight:800;margin:16px 0}input{min-height:48px;border:1px solid var(--line);border-radius:10px;padding:0 14px;font:inherit}
 .benefits{margin:30px 0;padding:24px;border-radius:16px;background:#eefbfc;border:1px solid #bfe9ec}.benefits h2{margin:6px 0 14px}.benefits ul{list-style:none;margin:0;padding:0}.benefits li{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #cfeaec}.benefits li:last-child{border-bottom:0}.benefits li strong{color:#087f89}.benefits li span{font-weight:700}
 .submission-period{display:grid;gap:6px;margin-top:24px;padding:18px 20px;border:2px solid var(--cyan);border-radius:14px;background:#f2fdfe}.submission-period strong{color:#087f89;font-size:14px}.submission-period span{font-size:18px;font-weight:950;line-height:1.45}.submission-period small{color:#5a686e;line-height:1.5}
 .consent{grid-template-columns:auto 1fr;align-items:start;font-weight:600;line-height:1.5}.consent input{min-height:auto;margin-top:4px}.hp{position:absolute;left:-9999px}
-button,.result a{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 24px;border:0;border-radius:99px;background:var(--cyan);color:#071013;font-weight:950;text-decoration:none;cursor:pointer}
+button,.result a{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 24px;border:0;border-radius:99px;background:var(--cyan);color:#fff;font-weight:950;text-decoration:none;cursor:pointer}
 button{width:100%;font-size:17px}button:disabled{opacity:.55;cursor:wait}.error{color:#b42318;min-height:24px}.result{max-width:680px;margin:10vh auto}.result a{margin:12px 8px 0 0}
 @media(max-width:760px){.checkout{grid-template-columns:1fr;padding:92px 18px 18px}.product,.order{padding:24px}h1{font-size:34px}}
+.checkout-footer{padding:30px 20px 38px;color:#66757b;background:#e9f0f1;text-align:center;border-top:1px solid var(--line)}.checkout-footer p{margin:7px 0;font-size:12px;line-height:1.65}.checkout-footer strong{color:var(--ink)}.checkout-footer a{color:var(--ink);text-underline-offset:3px}
