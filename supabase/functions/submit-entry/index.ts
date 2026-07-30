@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-const categories = new Set(["Brand Poster", "Ad Film", "Short-form Drama", "Short Film"]);
+const categories = new Set(["Brand Poster", "Ad Film", "Short-form Drama", "Short Film", "Short Animation"]);
 const ageGroups = new Set(["청소년부", "성인부", "단체출품"]);
 const productionTypes = new Set(["개인출품", "단체출품"]);
 const aiUseValues = new Set(["활용함", "활용하지 않음"]);
