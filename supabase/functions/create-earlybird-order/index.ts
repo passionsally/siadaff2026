@@ -2,7 +2,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const PRODUCT = { code: "SIADAFF2026_SUPER_EARLYBIRD_1", name: "서울국제광고영화제 출품권(1작품)", amount: 29900 };
 const SALE_START = Date.parse("2026-07-30T00:00:00+09:00");
-const SALE_END = Date.parse("2026-08-12T23:59:59+09:00");
+const SALE_END = Date.parse("2026-08-20T23:59:59+09:00");
 const cors = {
   "Access-Control-Allow-Headers": "content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
