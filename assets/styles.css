@@ -761,8 +761,7 @@ textarea {
   background: #eceeee;
 }
 
-.trophy-wrap::before,
-.trophy-wrap::after {
+.trophy-wrap::before {
   position: absolute;
   z-index: 2;
   right: -2px;
@@ -776,22 +775,6 @@ textarea {
   top: -2px;
   background: linear-gradient(
     to bottom,
-    #fff 0%,
-    rgba(255, 255, 255, .98) 8%,
-    rgba(255, 255, 255, .9) 20%,
-    rgba(255, 255, 255, .7) 36%,
-    rgba(255, 255, 255, .46) 54%,
-    rgba(255, 255, 255, .24) 70%,
-    rgba(255, 255, 255, .09) 84%,
-    rgba(255, 255, 255, .02) 94%,
-    transparent 100%
-  );
-}
-
-.trophy-wrap::after {
-  bottom: -2px;
-  background: linear-gradient(
-    to top,
     #fff 0%,
     rgba(255, 255, 255, .98) 8%,
     rgba(255, 255, 255, .9) 20%,
