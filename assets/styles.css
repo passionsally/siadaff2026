@@ -133,27 +133,18 @@ textarea {
 }
 
 .wordmark-ai-copy {
-  display: grid;
-  gap: 0;
-  line-height: .88;
+  display: flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .wordmark-ai-copy strong {
   color: #fff;
-  font-family: "NanumSquare", "Nanum Gothic", sans-serif;
-  font-size: 16px;
-  font-weight: 950;
-  letter-spacing: -.055em;
-  white-space: nowrap;
-}
-
-.wordmark-ai-copy small {
-  margin-top: 4px;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: clamp(15px, 1.25vw, 19px);
   font-weight: 900;
-  letter-spacing: .02em;
+  letter-spacing: -.045em;
+  white-space: nowrap;
 }
 
 .nav-menu {
@@ -1687,6 +1678,10 @@ section.is-visible,
 }
 
 @media (max-width: 640px) {
+  .wordmark-ai-copy strong {
+    font-size: 15px;
+  }
+
   .wordmark img {
     width: 148px;
   }
