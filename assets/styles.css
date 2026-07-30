@@ -1361,9 +1361,38 @@ textarea {
   text-align: center;
 }
 
-.site-footer img {
+.site-footer .footer-wordmark {
   width: 230px;
   margin: 0 auto 22px;
+}
+
+.footer-official-logos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 0 auto 30px;
+}
+
+.footer-official-logos figure {
+  width: 132px;
+  margin: 0;
+}
+
+.footer-official-logos img {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 10px;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.footer-official-logos figcaption {
+  color: rgba(255, 255, 255, .82);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
 }
 
 .site-footer p {
