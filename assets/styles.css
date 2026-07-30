@@ -117,6 +117,45 @@ textarea {
   width: 176px;
 }
 
+.wordmark-ai {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+.wordmark .wordmark-ai-symbol {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .55));
+}
+
+.wordmark-ai-copy {
+  display: grid;
+  gap: 0;
+  line-height: .88;
+}
+
+.wordmark-ai-copy strong {
+  color: #fff;
+  font-family: "NanumSquare", "Nanum Gothic", sans-serif;
+  font-size: 16px;
+  font-weight: 950;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+
+.wordmark-ai-copy small {
+  margin-top: 4px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;

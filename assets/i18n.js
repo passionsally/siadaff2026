@@ -298,7 +298,7 @@
   const originalAttributes = new WeakMap();
   const translatableAttributes = ["placeholder", "title", "aria-label", "alt"];
   const pageTitles = {
-    ko: "서울국제광고영화제 | 39초광고·59초숏폼드라마·3분단편영화·3분단편애니메이션",
+    ko: "서울국제AI광고영화제 | 39초광고·59초숏폼드라마·3분단편애니메이션",
     en: "SIADAFF 2026 | 39-sec Ad Film · 59-sec Short-form Drama · 3-min Short Film & Animation",
     "zh-CN": "SIADAFF 2026｜39秒广告·59秒短剧·3分钟短片与短篇动画"
   };
