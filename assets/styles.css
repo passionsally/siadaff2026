@@ -1795,29 +1795,13 @@ section.is-visible,
   height: clamp(300px, 42vw, 600px);
   margin: 0;
   overflow: hidden;
-  background: #000;
+  background: #fff;
   isolation: isolate;
 }
 
 .festival-interlude::before,
 .festival-interlude::after {
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  left: 0;
-  height: 18%;
-  content: "";
-  pointer-events: none;
-}
-
-.festival-interlude::before {
-  top: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.82), transparent);
-}
-
-.festival-interlude::after {
-  bottom: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.82), transparent);
+  display: none;
 }
 
 .festival-interlude img {
@@ -1828,6 +1812,40 @@ section.is-visible,
   object-position: center;
   filter: saturate(0.94) contrast(1.03);
   transform: scale(1.002);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, .04) 3%,
+    rgba(0, 0, 0, .14) 7%,
+    rgba(0, 0, 0, .34) 12%,
+    rgba(0, 0, 0, .64) 18%,
+    rgba(0, 0, 0, .88) 23%,
+    #000 28%,
+    #000 72%,
+    rgba(0, 0, 0, .88) 77%,
+    rgba(0, 0, 0, .64) 82%,
+    rgba(0, 0, 0, .34) 88%,
+    rgba(0, 0, 0, .14) 93%,
+    rgba(0, 0, 0, .04) 97%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, .04) 3%,
+    rgba(0, 0, 0, .14) 7%,
+    rgba(0, 0, 0, .34) 12%,
+    rgba(0, 0, 0, .64) 18%,
+    rgba(0, 0, 0, .88) 23%,
+    #000 28%,
+    #000 72%,
+    rgba(0, 0, 0, .88) 77%,
+    rgba(0, 0, 0, .64) 82%,
+    rgba(0, 0, 0, .34) 88%,
+    rgba(0, 0, 0, .14) 93%,
+    rgba(0, 0, 0, .04) 97%,
+    transparent 100%
+  );
 }
 
 @media (max-width: 640px) {
@@ -1835,10 +1853,6 @@ section.is-visible,
     height: clamp(220px, 70vw, 360px);
   }
 
-  .festival-interlude::before,
-  .festival-interlude::after {
-    height: 14%;
-  }
 }
 
 .filmstrip-gallery {
