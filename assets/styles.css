@@ -633,6 +633,46 @@ textarea {
   margin: 76px auto 0;
 }
 
+.sponsor-section .partner-area {
+  margin-top: 0;
+}
+
+.prize-summary-section {
+  padding: 72px 20px;
+  color: var(--ink);
+  background: var(--proposal-paper);
+}
+
+.prize-summary-card {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.prize-summary-card > span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--pink);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.prize-summary-card > strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(64px, 9vw, 108px);
+  font-weight: 950;
+  line-height: .95;
+}
+
+.prize-summary-card > p {
+  margin: 24px 0 0;
+  font-size: 18px;
+  font-weight: 900;
+}
+
 .impact-section .section-title > span,
 .impact-grid article:not(.entry-fee-card) > span {
   color: var(--pink);
