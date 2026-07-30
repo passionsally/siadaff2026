@@ -1556,6 +1556,156 @@ textarea {
   margin: 0 auto 22px;
 }
 
+.support-marquee-section {
+  padding: 84px 0 92px;
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--white);
+  border-top: 1px solid #e6e6e6;
+}
+
+.marquee-heading {
+  margin: 0 auto 28px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.marquee-heading span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.marquee-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.partner-marquee-heading {
+  margin-top: 64px;
+}
+
+.logo-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-marquee::before,
+.logo-marquee::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: clamp(36px, 8vw, 140px);
+  content: "";
+  pointer-events: none;
+}
+
+.logo-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+}
+
+.logo-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  animation: support-marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.partner-marquee .logo-marquee-track {
+  animation-duration: 48s;
+  animation-direction: reverse;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+.logo-marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+}
+
+.marquee-card {
+  width: 224px;
+  height: 104px;
+  flex: 0 0 224px;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border: 1px solid #b7c9cc;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .06);
+}
+
+.marquee-card img {
+  width: 100%;
+  max-width: 190px;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.placeholder-card,
+.marquee-card-empty {
+  color: #5a6668;
+  border: 2px dashed #a9c3c7;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+@keyframes support-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 8px));
+  }
+}
+
+@media (max-width: 640px) {
+  .support-marquee-section {
+    padding: 64px 0 70px;
+  }
+
+  .partner-marquee-heading {
+    margin-top: 48px;
+  }
+
+  .marquee-card {
+    width: 176px;
+    height: 86px;
+    flex-basis: 176px;
+    padding: 12px;
+  }
+
+  .marquee-card img {
+    max-width: 150px;
+    max-height: 60px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
 .footer-official-logos {
   display: flex;
   justify-content: center;
