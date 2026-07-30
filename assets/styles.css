@@ -492,7 +492,7 @@ textarea {
 }
 
 .partner-row {
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .placeholder-row div {
@@ -509,10 +509,19 @@ textarea {
   min-height: 74px;
 }
 
+.placeholder-row.compact.partner-row div {
+  min-height: 96px;
+}
+
 .placeholder-row .partner-logo {
   padding: 14px 16px;
   background: rgba(255, 255, 255, .92);
   border-style: solid;
+}
+
+.placeholder-row .partner-logo-empty {
+  background: rgba(255, 255, 255, .16);
+  border-style: dashed;
 }
 
 .partner-logo img {
