@@ -317,3 +317,58 @@ form.addEventListener("submit", async (event) => {
     setSubmitting(false);
   }
 });
+
+const filmstrip = document.querySelector("[data-filmstrip]");
+if (filmstrip) {
+  const slides = Array.from(filmstrip.querySelectorAll(".filmstrip-slide"));
+  const dotsWrap = filmstrip.querySelector("[data-filmstrip-dots]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let activeSlide = 0;
+  let filmstripTimer = null;
+
+  const showFilmstripSlide = (index) => {
+    activeSlide = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-active", slideIndex === activeSlide);
+    });
+    dotsWrap.querySelectorAll(".filmstrip-dot").forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === activeSlide);
+      dot.setAttribute("aria-current", dotIndex === activeSlide ? "true" : "false");
+    });
+  };
+
+  slides.forEach((slide, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = `filmstrip-dot${index === 0 ? " is-active" : ""}`;
+    dot.setAttribute("aria-label", `${index + 1}번째 행사사진 보기`);
+    dot.setAttribute("aria-current", index === 0 ? "true" : "false");
+    dot.addEventListener("click", () => {
+      showFilmstripSlide(index);
+      restartFilmstrip();
+    });
+    dotsWrap.append(dot);
+  });
+
+  const startFilmstrip = () => {
+    if (reduceMotion || slides.length < 2 || filmstripTimer) return;
+    filmstripTimer = window.setInterval(() => showFilmstripSlide(activeSlide + 1), 4500);
+  };
+
+  const stopFilmstrip = () => {
+    if (!filmstripTimer) return;
+    window.clearInterval(filmstripTimer);
+    filmstripTimer = null;
+  };
+
+  const restartFilmstrip = () => {
+    stopFilmstrip();
+    startFilmstrip();
+  };
+
+  filmstrip.addEventListener("mouseenter", stopFilmstrip);
+  filmstrip.addEventListener("mouseleave", startFilmstrip);
+  filmstrip.addEventListener("focusin", stopFilmstrip);
+  filmstrip.addEventListener("focusout", startFilmstrip);
+  startFilmstrip();
+}

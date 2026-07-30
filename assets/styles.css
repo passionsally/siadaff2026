@@ -1694,3 +1694,118 @@ section.is-visible,
     height: 14%;
   }
 }
+
+.filmstrip-gallery {
+  position: relative;
+  padding: 38px clamp(20px, 6vw, 96px);
+  overflow: hidden;
+  background: #050505;
+}
+
+.filmstrip-gallery::before,
+.filmstrip-gallery::after {
+  position: absolute;
+  z-index: 3;
+  top: 9px;
+  right: 0;
+  left: 0;
+  height: 18px;
+  content: "";
+  background: radial-gradient(circle at 12px 9px, #fff 0 5px, transparent 5.5px) 0 0 / 34px 18px repeat-x;
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+.filmstrip-gallery::after {
+  top: auto;
+  bottom: 9px;
+}
+
+.filmstrip-track {
+  position: relative;
+  height: clamp(300px, 48vw, 660px);
+  overflow: hidden;
+  border: 4px solid #000;
+  background: #000;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.32);
+}
+
+.filmstrip-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 900ms ease, transform 6s ease;
+}
+
+.filmstrip-slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.filmstrip-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.filmstrip-dots {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 52px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.filmstrip-dot {
+  width: 28px;
+  height: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: width 220ms ease, background 220ms ease;
+}
+
+.filmstrip-dot.is-active {
+  width: 48px;
+  background: #e91e63;
+}
+
+@media (max-width: 640px) {
+  .filmstrip-gallery {
+    padding: 30px 12px;
+  }
+
+  .filmstrip-track {
+    height: 68vw;
+    min-height: 250px;
+  }
+
+  .filmstrip-dots {
+    bottom: 40px;
+    gap: 5px;
+  }
+
+  .filmstrip-dot {
+    width: 16px;
+  }
+
+  .filmstrip-dot.is-active {
+    width: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filmstrip-slide {
+    transition: opacity 180ms linear;
+  }
+}
