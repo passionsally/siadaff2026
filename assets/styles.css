@@ -748,17 +748,64 @@ textarea {
 }
 
 .trophy-section {
+  position: relative;
   padding: 0;
-  background: #eceeee;
+  overflow: hidden;
+  background: #fff;
 }
 
 .trophy-wrap {
   position: relative;
   width: min(1320px, 100%);
   margin: 0 auto;
+  background: #eceeee;
+}
+
+.trophy-wrap::before,
+.trophy-wrap::after {
+  position: absolute;
+  z-index: 2;
+  right: -2px;
+  left: -2px;
+  height: 42%;
+  content: "";
+  pointer-events: none;
+}
+
+.trophy-wrap::before {
+  top: -2px;
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    rgba(255, 255, 255, .98) 8%,
+    rgba(255, 255, 255, .9) 20%,
+    rgba(255, 255, 255, .7) 36%,
+    rgba(255, 255, 255, .46) 54%,
+    rgba(255, 255, 255, .24) 70%,
+    rgba(255, 255, 255, .09) 84%,
+    rgba(255, 255, 255, .02) 94%,
+    transparent 100%
+  );
+}
+
+.trophy-wrap::after {
+  bottom: -2px;
+  background: linear-gradient(
+    to top,
+    #fff 0%,
+    rgba(255, 255, 255, .98) 8%,
+    rgba(255, 255, 255, .9) 20%,
+    rgba(255, 255, 255, .7) 36%,
+    rgba(255, 255, 255, .46) 54%,
+    rgba(255, 255, 255, .24) 70%,
+    rgba(255, 255, 255, .09) 84%,
+    rgba(255, 255, 255, .02) 94%,
+    transparent 100%
+  );
 }
 
 .trophy-wrap img {
+  display: block;
   width: 100%;
 }
 
@@ -1973,7 +2020,7 @@ section.is-visible,
 }
 
 .festival-interlude::before {
-  top: var(--interlude-pad);
+  top: calc(var(--interlude-pad) - 2px);
   background: linear-gradient(
     to bottom,
     #fff 0%,
@@ -1990,7 +2037,7 @@ section.is-visible,
 }
 
 .festival-interlude::after {
-  bottom: var(--interlude-pad);
+  bottom: calc(var(--interlude-pad) - 2px);
   background: linear-gradient(
     to top,
     #fff 0%,
@@ -2013,7 +2060,6 @@ section.is-visible,
   object-fit: cover;
   object-position: center;
   filter: saturate(0.94) contrast(1.03);
-  transform: scale(1.002);
 }
 
 @media (max-width: 640px) {
