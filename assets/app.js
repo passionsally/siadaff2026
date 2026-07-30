@@ -96,7 +96,7 @@ function validateBusinessFile() {
   const file = businessFileInput.files?.[0];
 
   if (!isGroup) return "";
-  if (!file) return "단체출품은 사업자등록증 파일을 첨부해 주세요.";
+  if (!file) return "단체(기업)출품은 사업자등록증 파일을 첨부해 주세요.";
 
   const allowedTypes = new Set(["application/pdf", "image/jpeg", "image/png"]);
   const extension = file.name.split(".").pop()?.toLowerCase();
