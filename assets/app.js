@@ -42,6 +42,19 @@ const categoryNames = {
   "Short Animation": "3분 단편애니메이션"
 };
 
+function removeObsoletePosterOptions() {
+  [categorySelect, titleSelect].forEach((select) => {
+    Array.from(select.options).forEach((option) => {
+      const optionText = `${option.value} ${option.textContent} ${option.dataset.category || ""}`;
+      if (/포스터|poster/i.test(optionText)) {
+        option.remove();
+      }
+    });
+  });
+}
+
+removeObsoletePosterOptions();
+
 function syncTitleFromCategory() {
   const label = categoryNames[categorySelect.value];
   titleSelect.value = label ? `SIADAFF 1회 ${label} 부문 출품작` : "";
