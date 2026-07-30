@@ -192,8 +192,9 @@ textarea {
 }
 
 .site-language-menu button[data-site-language="zh-CN"] {
-  min-width: 40px;
+  min-width: 58px;
   color: #fff !important;
+  font-family: Arial, "Microsoft YaHei", "Noto Sans SC", sans-serif !important;
 }
 
 .member-panel {
@@ -542,7 +543,7 @@ textarea {
 }
 
 .partner-row {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .placeholder-row div {
