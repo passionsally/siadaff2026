@@ -1950,11 +1950,12 @@ section.is-visible,
 
 /* Full-width visual pauses between the festival's major story sections. */
 .festival-interlude {
+  --interlude-pad: clamp(72px, 7vw, 112px);
   position: relative;
   width: 100%;
   height: auto;
   margin: 0;
-  padding: clamp(72px, 7vw, 112px) 0;
+  padding: var(--interlude-pad) 0;
   overflow: hidden;
   background: #fff;
   isolation: isolate;
@@ -1962,7 +1963,47 @@ section.is-visible,
 
 .festival-interlude::before,
 .festival-interlude::after {
-  display: none;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  left: 0;
+  height: 42%;
+  content: "";
+  pointer-events: none;
+}
+
+.festival-interlude::before {
+  top: var(--interlude-pad);
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    rgba(255, 255, 255, .98) 8%,
+    rgba(255, 255, 255, .92) 18%,
+    rgba(255, 255, 255, .78) 30%,
+    rgba(255, 255, 255, .58) 44%,
+    rgba(255, 255, 255, .38) 58%,
+    rgba(255, 255, 255, .2) 72%,
+    rgba(255, 255, 255, .08) 84%,
+    rgba(255, 255, 255, .02) 94%,
+    transparent 100%
+  );
+}
+
+.festival-interlude::after {
+  bottom: var(--interlude-pad);
+  background: linear-gradient(
+    to top,
+    #fff 0%,
+    rgba(255, 255, 255, .98) 8%,
+    rgba(255, 255, 255, .92) 18%,
+    rgba(255, 255, 255, .78) 30%,
+    rgba(255, 255, 255, .58) 44%,
+    rgba(255, 255, 255, .38) 58%,
+    rgba(255, 255, 255, .2) 72%,
+    rgba(255, 255, 255, .08) 84%,
+    rgba(255, 255, 255, .02) 94%,
+    transparent 100%
+  );
 }
 
 .festival-interlude img {
@@ -1973,40 +2014,13 @@ section.is-visible,
   object-position: center;
   filter: saturate(0.94) contrast(1.03);
   transform: scale(1.002);
-  -webkit-mask-image: radial-gradient(
-    ellipse 118% 86% at 50% 50%,
-    #000 0%,
-    #000 44%,
-    rgba(0, 0, 0, .98) 51%,
-    rgba(0, 0, 0, .91) 58%,
-    rgba(0, 0, 0, .78) 65%,
-    rgba(0, 0, 0, .6) 72%,
-    rgba(0, 0, 0, .4) 79%,
-    rgba(0, 0, 0, .23) 86%,
-    rgba(0, 0, 0, .1) 92%,
-    rgba(0, 0, 0, .03) 97%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 118% 86% at 50% 50%,
-    #000 0%,
-    #000 44%,
-    rgba(0, 0, 0, .98) 51%,
-    rgba(0, 0, 0, .91) 58%,
-    rgba(0, 0, 0, .78) 65%,
-    rgba(0, 0, 0, .6) 72%,
-    rgba(0, 0, 0, .4) 79%,
-    rgba(0, 0, 0, .23) 86%,
-    rgba(0, 0, 0, .1) 92%,
-    rgba(0, 0, 0, .03) 97%,
-    transparent 100%
-  );
 }
 
 @media (max-width: 640px) {
   .festival-interlude {
+    --interlude-pad: 48px;
     height: auto;
-    padding-block: 48px;
+    padding-block: var(--interlude-pad);
   }
 
   .festival-interlude img {
