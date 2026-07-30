@@ -191,6 +191,11 @@ textarea {
   background: var(--cyan);
 }
 
+.site-language-menu button[data-site-language="zh-CN"] {
+  min-width: 40px;
+  color: #fff !important;
+}
+
 .member-panel {
   scroll-margin-top: 96px;
 }
