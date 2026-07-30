@@ -1641,3 +1641,56 @@ section.is-visible,
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Full-width visual pauses between the festival's major story sections. */
+.festival-interlude {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 42vw, 600px);
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+  isolation: isolate;
+}
+
+.festival-interlude::before,
+.festival-interlude::after {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  height: 18%;
+  content: "";
+  pointer-events: none;
+}
+
+.festival-interlude::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.82), transparent);
+}
+
+.festival-interlude::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.82), transparent);
+}
+
+.festival-interlude img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.94) contrast(1.03);
+  transform: scale(1.002);
+}
+
+@media (max-width: 640px) {
+  .festival-interlude {
+    height: clamp(220px, 70vw, 360px);
+  }
+
+  .festival-interlude::before,
+  .festival-interlude::after {
+    height: 14%;
+  }
+}
