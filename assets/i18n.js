@@ -150,7 +150,7 @@
       "포스터는 디자인 완성도와 가독성, CF·숏폼드라마·단편영화는 서사·연기·연출, 단편애니메이션은 스토리·연출·움직임의 완성도를 함께 봅니다. 특별상은 후원기업 및 부문 특성에 맞춰 별도 검토합니다.": "Posters are judged on design quality and readability; commercials, short-form dramas, and short films on narrative, performance, and direction; and short animation on story, direction, and quality of movement. Special Awards are reviewed separately according to sponsor and category characteristics.",
       "최우수상 5편 (5개 출품부문 통합 선발)": "Excellence Awards · 5 Works (selected across all five categories)",
       "우수상 5편 (5개 출품부문 통합 선발)": "Merit Awards · 5 Works (selected across all five categories)",
-      "장려상 8편 (5개 출품부문 통합 선발)": "Encouragement Awards · 8 Works (selected across all five categories)",
+      "장려상 10편 (5개 출품부문 통합 선발)": "Encouragement Awards · 10 Works (selected across all five categories)",
       "3분 단편애니메이션": "3-min Short Animation",
       "SIADAFF 1회 3분 단편애니메이션 부문 출품작": "SIADAFF 1st Edition · 3-min Short Animation Entry"
     },
@@ -298,7 +298,7 @@
       "포스터는 디자인 완성도와 가독성, CF·숏폼드라마·단편영화는 서사·연기·연출, 단편애니메이션은 스토리·연출·움직임의 완성도를 함께 봅니다. 특별상은 후원기업 및 부문 특성에 맞춰 별도 검토합니다.": "海报侧重设计完成度和可读性；广告、短剧和短片综合考察叙事、表演及导演；短篇动画综合考察故事、导演及动作完成度。特别奖将根据赞助方和类别特点另行评审。",
       "최우수상 5편 (5개 출품부문 통합 선발)": "最优秀奖5部（从5个参赛类别中综合选拔）",
       "우수상 5편 (5개 출품부문 통합 선발)": "优秀奖5部（从5个参赛类别中综合选拔）",
-      "장려상 8편 (5개 출품부문 통합 선발)": "鼓励奖8部（从5个参赛类别中综合选拔）",
+      "장려상 10편 (5개 출품부문 통합 선발)": "鼓励奖10部（从5个参赛类别中综合选拔）",
       "3분 단편애니메이션": "3分钟短篇动画",
       "SIADAFF 1회 3분 단편애니메이션 부문 출품작": "SIADAFF首届·3分钟短篇动画参赛作品"
     }
