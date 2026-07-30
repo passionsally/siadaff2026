@@ -160,6 +160,13 @@
   font-weight: 950;
 }
 
+.sponsor-summary-grid .sponsor-runtime-list {
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.45;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
 .sponsor-band {
   padding: 96px 20px;
   background: var(--paper);
