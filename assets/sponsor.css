@@ -235,6 +235,65 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.sponsorship-type-title {
+  width: min(1180px, 100%);
+  margin: 54px auto 22px;
+  text-align: center;
+}
+
+.sponsorship-type-title h3 {
+  margin: 0 0 10px;
+  color: var(--white);
+  font-size: clamp(28px, 3.8vw, 44px);
+}
+
+.sponsorship-type-title h3 strong {
+  color: var(--pink);
+}
+
+.sponsorship-type-title p {
+  margin: 0;
+  color: rgba(255, 255, 255, .7);
+  font-weight: 750;
+}
+
+.sponsorship-type-grid {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.sponsorship-type-card {
+  padding: 24px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: var(--radius);
+}
+
+.sponsorship-type-card span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--pink);
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.sponsorship-type-card h4 {
+  margin: 0 0 10px;
+  font-size: 23px;
+}
+
+.sponsorship-type-card p {
+  margin: 0;
+  color: #4b5960;
+  line-height: 1.62;
+  font-weight: 720;
+}
+
 .package-card {
   color: var(--white);
   background: rgba(255, 255, 255, .06);
@@ -371,6 +430,7 @@
   .sponsor-summary-grid,
   .sponsor-card-grid,
   .package-grid,
+  .sponsorship-type-grid,
   .benefit-grid,
   .timeline-grid,
   .contact-panel {
