@@ -1207,6 +1207,37 @@ textarea {
   margin-bottom: 34px;
 }
 
+.submit-intro .submit-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.submit-intro .submit-brand-lockup img {
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  margin: 0;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 7px 9px rgba(0, 0, 0, .62))
+    drop-shadow(-2px 0 6px rgba(20, 174, 227, .3))
+    drop-shadow(2px 0 6px rgba(247, 35, 113, .3));
+}
+
+.submit-intro .submit-brand-lockup strong {
+  display: block;
+  margin: 0;
+  color: var(--white);
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: clamp(17px, 1.55vw, 22px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+
 .submit-intro span {
   color: var(--cyan);
 }
@@ -1678,6 +1709,21 @@ section.is-visible,
 }
 
 @media (max-width: 640px) {
+  .submit-intro .submit-brand-lockup {
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .submit-intro .submit-brand-lockup img {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  .submit-intro .submit-brand-lockup strong {
+    font-size: 16px;
+  }
+
   .wordmark-ai-copy strong {
     font-size: 15px;
   }
