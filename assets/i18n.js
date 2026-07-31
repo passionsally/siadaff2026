@@ -142,9 +142,9 @@
       "원비즈연구소 ONEBIZ Lab.": "ONEBIZ Lab.", "제노북스 ZENO BOOKS": "ZENO BOOKS", "제노스쿨 ZENO SCHOOL": "ZENO SCHOOL",
       "39초 이내 광고영상, 59초 이내 숏폼드라마, 3분 이내 단편영화, 3분 이내 단편애니메이션": "Ad Film up to 39 sec, Short-form Drama up to 59 sec, Short Film up to 3 min, Short Animation up to 3 min",
       "광고·숏폼드라마·단편영화는 서사·연기·연출, 단편애니메이션은 스토리·연출·움직임의 완성도를 함께 봅니다. 특별상은 후원기업 및 부문 특성에 맞춰 별도 검토합니다.": "Ad films, short-form dramas, and short films are judged on narrative, performance, and direction; short animation on story, direction, and quality of movement. Special Awards are reviewed separately according to sponsor and category characteristics.",
-      "최우수상 4편 (4개 출품부문 통합 선발)": "Excellence Awards · 4 Works (selected across all four categories)",
-      "우수상 4편 (4개 출품부문 통합 선발)": "Merit Awards · 4 Works (selected across all four categories)",
-      "장려상 10편 (4개 출품부문 통합 선발)": "Encouragement Awards · 10 Works (selected across all four categories)",
+      "최우수상 4편": "Excellence Awards · 4 Works",
+      "우수상 4편": "Merit Awards · 4 Works",
+      "장려상 10편": "Encouragement Awards · 10 Works",
       "3분 단편애니메이션": "3-min Short Animation",
       "SIADAFF 1회 3분 단편애니메이션 부문 출품작": "SIADAFF 1st Edition · 3-min Short Animation Entry"
     },
@@ -285,9 +285,9 @@
       "후원기업과 후원공기관 로고 자리": "赞助企业及支持公共机构标志区域",
       "39초 이내 광고영상, 59초 이내 숏폼드라마, 3분 이내 단편영화, 3분 이내 단편애니메이션": "39秒以内广告片、59秒以内短剧、3分钟以内短片、3分钟以内短篇动画",
       "광고·숏폼드라마·단편영화는 서사·연기·연출, 단편애니메이션은 스토리·연출·움직임의 완성도를 함께 봅니다. 특별상은 후원기업 및 부문 특성에 맞춰 별도 검토합니다.": "广告、短剧和短片综合考察叙事、表演及导演；短篇动画综合考察故事、导演及动作完成度。特别奖将根据赞助方和类别特点另行评审。",
-      "최우수상 4편 (4개 출품부문 통합 선발)": "最优秀奖4部（从4个参赛类别中综合选拔）",
-      "우수상 4편 (4개 출품부문 통합 선발)": "优秀奖4部（从4个参赛类别中综合选拔）",
-      "장려상 10편 (4개 출품부문 통합 선발)": "鼓励奖10部（从4个参赛类别中综合选拔）",
+      "최우수상 4편": "最优秀奖4部",
+      "우수상 4편": "优秀奖4部",
+      "장려상 10편": "鼓励奖10部",
       "3분 단편애니메이션": "3分钟短篇动画",
       "SIADAFF 1회 3분 단편애니메이션 부문 출품작": "SIADAFF首届·3分钟短篇动画参赛作品"
     }
