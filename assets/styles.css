@@ -1077,6 +1077,11 @@ textarea {
   font-weight: 850;
 }
 
+.section-note > strong,
+.section-note > span {
+  display: block;
+}
+
 .schedule-cards time {
   display: block;
   margin-top: 32px;
