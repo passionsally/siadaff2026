@@ -3,6 +3,8 @@
     en: {
       "주요 메뉴": "Main navigation", "홈페이지 언어 선택": "Website language",
       "SIADAFF 홈": "SIADAFF Home",
+      "SIADAFF · 서울국제AI광고영화제": "SIADAFF · Seoul International AI Advertising Film Festival",
+      "서울국제광고영화제의 새로운 이름": "The new name of the Seoul International Advertising Film Festival",
       "로그인": "Log in", "회원가입": "Sign up", "작품출품하기": "Submit a Work",
       "슈퍼얼리버드 신청접수하기": "Apply for Super Early Bird", "가이드라인": "Guidelines", "후원 제안": "Sponsorship",
       "정가 42,700원": "Regular price KRW 42,700", "29,900원부터": "From KRW 29,900",
@@ -150,6 +152,8 @@
     },
     "zh-CN": {
       "주요 메뉴": "主菜单", "홈페이지 언어 선택": "网站语言", "SIADAFF 홈": "SIADAFF首页",
+      "SIADAFF · 서울국제AI광고영화제": "SIADAFF · 首尔国际AI广告电影节",
+      "서울국제광고영화제의 새로운 이름": "首尔国际广告电影节的全新名称",
       "Guideline": "参赛指南", "Submit": "作品提交", "Reward": "奖项", "Archive": "资料库", "Sponsor": "赞助合作",
       "로그인": "登录", "회원가입": "注册", "작품출품하기": "提交作品",
       "슈퍼얼리버드 신청접수하기": "超级早鸟申请", "가이드라인": "参赛指南", "후원 제안": "赞助合作",
@@ -298,9 +302,9 @@
   const originalAttributes = new WeakMap();
   const translatableAttributes = ["placeholder", "title", "aria-label", "alt"];
   const pageTitles = {
-    ko: "서울국제AI광고영화제 | 39초광고·59초숏폼드라마·3분단편애니메이션",
-    en: "SIADAFF 2026 | 39-sec Ad Film · 59-sec Short-form Drama · 3-min Short Film & Animation",
-    "zh-CN": "SIADAFF 2026｜39秒广告·59秒短剧·3分钟短片与短篇动画"
+    ko: "SIADAFF 서울국제AI광고영화제 | 서울국제광고영화제 2026",
+    en: "SIADAFF 2026 | Seoul International AI Advertising Film Festival",
+    "zh-CN": "SIADAFF 2026｜首尔国际AI广告电影节"
   };
   let observer;
 
