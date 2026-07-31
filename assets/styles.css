@@ -506,10 +506,13 @@ textarea {
 
 .submit-entry-fee > strong {
   display: block;
+  max-width: 100%;
   color: var(--white);
-  font-size: clamp(58px, 9vw, 98px);
+  font-size: clamp(48px, 7vw, 82px);
   line-height: .95;
   font-weight: 950;
+  letter-spacing: -.04em;
+  white-space: nowrap;
 }
 
 .submit-entry-fee > p {
@@ -1912,6 +1915,15 @@ section.is-visible,
 }
 
 @media (max-width: 640px) {
+  .submit-entry-fee {
+    width: min(100%, calc(100% - 8px));
+    padding-inline: 22px;
+  }
+
+  .submit-entry-fee > strong {
+    font-size: clamp(36px, 10.5vw, 46px);
+  }
+
   .submit-intro .submit-brand-lockup {
     gap: 10px;
     margin-bottom: 32px;
